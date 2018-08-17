@@ -1,2 +1,2 @@
 # config
-⚙ All of my Configuration Files.
+All of my Configuration Files.
