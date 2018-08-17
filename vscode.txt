@@ -76,4 +76,41 @@
 	"zenMode.hideTabs": false,
 	"zenMode.hideActivityBar": false,
 	//#endregion
+
+	/*
+
+	extensions___
+		Activus Bar                              | Gruntfuggly
+		Auto Close Tag                           | Jun Han
+		Auto Rename Tag                          | Jun Han
+		AutoHotKey                               | slevesque
+		Build and Run                            | olback
+		C/C++                                    | Microsoft
+		Discord Presence                         | Noel
+		filesize                                 | Matheus Kautzmann
+		ftp-sync                                 | Lukasz Wronski
+		gitignore                                | CodeZombie
+		HTML CSS Support                         | ecmel
+		Ini for VSCode                           | David Wang
+		Javascript (ES6) code snippets           | charalampos karypidis
+		Latest TypeScript and Javascript Grammar | Microsoft
+		Lua                                      | keyring
+		npm                                      | egamma
+		npm Intellisense                         | Christian Kohler
+		PHP Debug                                | Felix Becker
+		PHP Extension Pack                       | Felix Becker
+		PHP Intellisense                         | Felix Becker
+		Project Name in Status Bar               | mujichOk
+		Python                                   | Microsoft
+		Rainbow CSV                              | mechatroner
+		Rutoa                                    | Minin
+		XML Tools                                | Josh Johnson
+
+	icon packs___
+		Nomo Dark Icon Theme                     | be5invis
+
+	themes___
+		Material Theme                           | Mattia Astorino
+
+	*/
 }
