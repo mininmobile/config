@@ -41,6 +41,11 @@
 		height: 2px !important;
 	}
 
+/* disable browser border */
+	#navigator-toolbox::after {
+		content: none !important;
+	}
+
 /* disable tab borders */
 	.tabbrowser-tab::after {
 		content: none;
@@ -59,6 +64,10 @@
 	#appMenu-tp-toggle[enabled="true"] {
 		background-color: var(--accent) !important;
 		border-color: var(--accent) !important;
+	}
+
+	#downloads-button[attention="success"] > #downloads-indicator-anchor > #downloads-indicator-icon, #downloads-button[attention="success"] > #downloads-indicator-anchor > #downloads-indicator-progress-outer {
+		fill: var(--accent) !important;
 	}
 
 /* tab opacity */
