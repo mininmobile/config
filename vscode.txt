@@ -59,6 +59,10 @@
 	"materialTheme.autoApplyIcons": false,
 	"python.linting.enabled": false,
 	"php.memoryLimit": "2000M",
+	"powermode.enableShake": false,
+	"powermode.enabled": true,
+	"powermode.enableStatusBarComboCounter": false,
+	"powermode.enableStatusBarComboTimer": false,
 	"terminal.integrated.copyOnSelection": true,
 	"terminal.integrated.cursorBlinking": true,
 	"terminal.integrated.cursorStyle": "line",
@@ -75,6 +79,12 @@
 	"zenMode.hideStatusBar": false,
 	"zenMode.hideTabs": false,
 	"zenMode.hideActivityBar": false,
+	"files.associations": {
+		"*.inc": "rainmeter"
+	},
+	"window.titleBarStyle": "custom",
+	"workbench.settings.editor": "json",
+	"workbench.startupEditor": "newUntitledFile",
 	//#endregion
 
 	/*
@@ -100,6 +110,8 @@
 		PHP Debug                                | Felix Becker
 		PHP Extension Pack                       | Felix Becker
 		PHP Intellisense                         | Felix Becker
+		Power Mode                               | Cody Hoover
+		PowerShell                               | Microsoft
 		Project Name in Status Bar               | mujichOk
 		Python                                   | Microsoft
 		Rainbow CSV                              | mechatroner
