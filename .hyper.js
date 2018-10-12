@@ -9,7 +9,7 @@ module.exports = {
 		},
 
 		// window opacity
-		opacity: 0.8,
+		opacity: 0.9,
 
 		// choose either `"stable"` for receiving highly polished,
 		// or `"canary"` for less polished but more frequent updates
@@ -141,13 +141,7 @@ module.exports = {
 	//   `hyperpower`
 	//   `@company/project`
 	//   `project#1.0.1`
-	plugins: [
-        "hyperpower",
-        "hyper-opacity",
-        "hyperocean",
-        "hyper-pane",
-        "hyper-dark-scrollbar"
-    ],
+	plugins: ["hyperpower", "hyper-opacity", "hyper-pane", "hyper-dark-scrollbar"],
 
 	// in development, you can create a directory under
 	// `~/.hyper_plugins/local/` and include it here
