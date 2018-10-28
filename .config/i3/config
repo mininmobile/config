@@ -26,12 +26,10 @@ assign [class="discord"] $workspace9
 
 hide_edge_borders none
 for_window [class="^.*"] border pixel 4
-smart_gaps on
 gaps outer 6
 gaps inner 12
 
 font pango:Roboto 8
-#font pango:DejaVu Sans Mono 8
 
 # startup apps
 # launch feh (set wallpaper)
@@ -40,18 +38,16 @@ exec firefox
 exec_always feh --bg-fill ~/Pictures/wallpaper.jpg
 exec --no-startup-id compton -f -D 5
 
-# dmenu
+# launch dmenu (default application launcher for i3, with custom options)
 bindsym $mod+d exec dmenu_run -fn "Roboto 8" -nb "$bg-color" -sb "$urgent-bg-color"
-# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
-
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
-# launch i3 lock (starts i3lock lock screen)
-bindsym $mod+Shift+x exec "i3lock -u -c '$bg-color' -p default"
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+# launch i3 lock (starts i3lock lock screen)
+bindsym $mod+Shift+x exec "i3lock -u -c '$bg-color' -p default"
 # launch screenshot (scrot)
 bindsym Print exec scrot -s -e "mv $f ~/Pictures/Screenshots/"
 
