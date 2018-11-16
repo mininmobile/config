@@ -1,0 +1,33 @@
+@import url("https://raw.githack.com/Customa/Customa/master/Base/base.m.css");
+@import url("https://raw.githack.com/Customa/Customa/master/Base/settings.m.css");
+@import url("https://raw.githack.com/Customa/Customa/master/Base/font.m.css");
+@import url("https://raw.githack.com/Customa/Customa/master/Base/selection.m.css");
+@import url("https://raw.githack.com/Customa/Customa/master/Base/tooltip.m.css");
+
+@import url('https://raw.githack.com/Customa/Customa/master/Chat/betterCompact.m.css');
+@import url('https://raw.githack.com/Customa/Customa/master/Chat/newEditIcon.m.css');
+@import url("https://raw.githack.com/Customa/Customa/master/Chat/codeBlockLanguages.m.css");
+@import url("https://raw.githack.com/Customa/Customa/master/Chat/guildsWrapper.m.css");
+/*@import url("https://raw.githack.com/Customa/Customa/master/Chat/channelsWrapper.m.css");*/
+/*@import url("https://raw.githack.com/Customa/Customa/master/Chat/dualGuilds.m.css");*/
+
+/*@import url("https://raw.githack.com/Customa/Customa/master/Misc/rainbow.m.css");*/
+
+:root {
+    --c: 250, 0, 70;
+    --DisplayEmbedPill: block;
+    --DisplayNoConnectionBackdraw: none;
+    --ColAppBG: #161621;
+    --ColBackground1: #161621;
+    --ColBackground2: #212126;
+    --ColAccent: rgb(var(--c));
+    --ColAnchor: var(--ColAccent);
+    --ColAccentAlpha: rgba(var(--c), 0.1);
+    --ColFalse: var(--ColBackground1);
+    --ColTrue: var(--ColAccent);
+    --ColTextSelection: rgba(var(--c), 0.9);
+    --ColTooltip: var(--ColAccent);
+    --FilterNoHover: grayscale(0%);
+    --FontFamily: "Ubuntu";
+    --FontMonoFamily: "Ubuntu Mono";
+}
