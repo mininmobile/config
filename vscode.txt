@@ -1,13 +1,40 @@
 {
-	//#region
+	//#region paths
 	"git.path": "F:\\Program Files\\Git\\cmd\\git.exe",
 	"python.pythonPath": "F:\\Program Files (x86)\\Python36-32\\python.exe",
 	"php.executablePath": "F:\\Data\\Documents\\Programs\\php-7.2.6-Win32-VC15-x86\\php.exe",
 	"php.validate.executablePath": "F:\\Data\\Documents\\Programs\\php-7.2.6-Win32-VC15-x86\\php.exe",
 	"terminal.integrated.shell.windows": "C:\\WINDOWS\\System32\\cmd.exe",
 	//#endregion
-	//#region
+	//#region colors
 	"workbench.colorCustomizations": {
+		"titleBar.activeBackground": "#161621",
+		"titleBar.inactiveBackground": "#161621",
+		"titleBar.border": "#21212600",
+		"editorGroupHeader.tabsBackground": "#161621",
+		"editorGroupHeader.tabsBorder": "#212126",
+		"tab.inactiveBackground": "#161621",
+		"tab.border": "#161621",
+		"focusBorder": "#fa0046",
+		"progressBar.background": "#fa0046",
+		"badge.background": "#fa0046",
+		"badge.foreground": "#ffffff",
+		"sideBar.background": "#161621",
+		"sideBar.border": "#212126",
+		"terminal.background": "#161621",
+		"panel.background": "#161621",
+		"panel.border": "#212126",
+		"editorGroup.border": "#212126",
+		"statusBar.noFolderBackground": "#161621",
+		"statusBar.debuggingBackground": "#161621",
+		"statusBarItem.hoverBackground": "#212126",
+		"statusBar.background": "#161621",
+		"statusBar.foreground": "#999999",
+		"editor.selectionBackground": "#fa004666",
+		"editorCursor.foreground": "#fa0046",
+		"editor.background": "#161621",
+
+		// what
 		"activityBarBadge.background": "#616161",
 		"list.activeSelectionForeground": "#616161",
 		"list.inactiveSelectionForeground": "#616161",
@@ -22,7 +49,7 @@
 		"editorWidget.border": "#616161"
 	},
 	//#endregion
-	//#region
+	//#region settings
 	"discord.detailsDebugging": "🐛 {filename}",
 	"discord.detailsEditing": "📝 {filename}",
 	"discord.detailsIdle": "📝 idle",
@@ -68,8 +95,11 @@
 	"terminal.integrated.cursorStyle": "line",
 	"terminal.explorerKind": "integrated",
 	"terminal.integrated.rendererType": "canvas",
+	"window.titleBarStyle": "custom",
 	"window.zoomLevel": -1,
 	"window.menuBarVisibility": "toggle",
+	"workbench.startupEditor": "welcomePage",
+	"workbench.settings.editor": "json",
 	"workbench.iconTheme": "vs-nomo-dark",
 	"workbench.statusBar.feedback.visible": false,
 	"workbench.colorTheme": "Material Theme Ocean",
@@ -82,9 +112,6 @@
 	"files.associations": {
 		"*.inc": "rainmeter"
 	},
-	"window.titleBarStyle": "custom",
-	"workbench.settings.editor": "json",
-	"workbench.startupEditor": "newUntitledFile",
 	//#endregion
 
 	/*
