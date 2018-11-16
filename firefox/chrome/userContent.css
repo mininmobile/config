@@ -1,5 +1,4 @@
-:root{
-	scrollbar-face-color: rgb(250, 0, 70) !important;
-	scrollbar-track-color: #161621 !important;
-	scrollbar-width: thin !important;
+:root {
+    scrollbar-color: rgb(250, 0, 70) #161621 !important;
+    scrollbar-width: thin !important;
 }
