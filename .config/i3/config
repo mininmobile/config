@@ -10,36 +10,42 @@ set $accent					#fa0046
 set $urgent-bg-color		#fa0046
 set $indicator-color		#161621
 
-set $workspace1 "☲"
-set $workspace2 "☵"
-set $workspace3 "☷"
-set $workspace4 "w"
-set $workspace5 "x"
-set $workspace6 "y"
-set $workspace7 "z"
-set $workspace8 ""
-set $workspace9 "☎"
-set $workspace10 "♬"
+set $workspace1 "1"
+set $workspace2 "2"
+set $workspace3 "3"
+set $workspace4 "4"
+set $workspace5 "5"
+set $workspace6 "6"
+set $workspace7 "7"
+set $workspace8 "8"
+set $workspace9 "9"
+set $workspace10 "10"
 
 assign [class="Firefox"] $workspace8
 assign [class="discord"] $workspace9
 
 hide_edge_borders none
-for_window [class="^.*"] border pixel 4
+for_window [class="^((?!iscord).)*$"] border pixel 4
+for_window [class="iscord"] border pixel 0
 gaps outer 6
 gaps inner 12
 
 font pango:Roboto 8
 
 # startup apps
+# launch polybar (bar)
 # launch feh (set wallpaper)
 # launch compton (fading transiton)
+# do what siji ont tells me to say (font shit)
 exec firefox
-exec_always feh --bg-fill ~/Pictures/wallpaper.jpg
-exec --no-startup-id compton -f -D 5
+exec polybar example &
+exec_always feh --bg-fill ~/Pictures/Wallpapers/solid\ color#212126.png
+exec --no-startup-id compton -f -c -C -D 5
+exec xset +fp /home/minin/.fonts
+exec xset fp rehash
 
 # launch dmenu (default application launcher for i3, with custom options)
-bindsym $mod+d exec dmenu_run -fn "Roboto 8" -nb "$bg-color" -sb "$urgent-bg-color"
+bindsym $mod+d exec dmenu_run -fn "Roboto" -nb "$bg-color" -sb "$urgent-bg-color"
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
@@ -49,7 +55,7 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 # launch i3 lock (starts i3lock lock screen)
 bindsym $mod+Shift+x exec "i3lock -u -c '$bg-color' -p default"
 # launch screenshot (scrot)
-bindsym Print exec scrot -s -e "mv $f ~/Pictures/Screenshots/"
+bindsym Print exec "scrot -s -e 'mv $f ~/Pictures/Screenshots/'"
 
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
@@ -121,18 +127,18 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-bar {
-	status_command i3blocks -c ~/.config/i3/i3blocks.conf
-	position top
-	colors {
-		background $bg-color
-		separator #757575
-		#					border				background			text
-		focused_workspace	$bg-color			$bg-color			$text-color
-		inactive_workspace	$inactive-bg-color	$inactive-bg-color	$inactive-text-color
-		urgent_workspace	$urgent-bg-color	$urgent-bg-color	$text-color
-	}
-}
+#bar {
+#	status_command i3blocks -c ~/.config/i3/i3blocks.conf
+#	position top
+#	colors {
+#		background $bg-color
+#		separator #757575
+#		#					border				background			text
+#		focused_workspace	$bg-color			$bg-color			$text-color
+#		inactive_workspace	$inactive-bg-color	$inactive-bg-color	$inactive-text-color
+#		urgent_workspace	$urgent-bg-color	$urgent-bg-color	$text-color
+#	}
+#}
 
 #						border				background			text					indicator
 client.focused			$bg-color			$bg-color			$text-color				$indicator-color
