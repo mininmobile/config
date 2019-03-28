@@ -16,7 +16,7 @@
 		"tab.inactiveBackground": "#161621",
 		"tab.border": "#161621",
 		"focusBorder": "#fa0046",
-		"progressBar.background": "#fa0046",
+		"progressBar.background": "#FF4081",
 		"badge.background": "#fa0046",
 		"badge.foreground": "#ffffff",
 		"sideBar.background": "#161621",
@@ -33,20 +33,24 @@
 		"editor.selectionBackground": "#fa004666",
 		"editorCursor.foreground": "#fa0046",
 		"editor.background": "#161621",
-
-		// what
-		"activityBarBadge.background": "#616161",
-		"list.activeSelectionForeground": "#616161",
-		"list.inactiveSelectionForeground": "#616161",
-		"list.highlightForeground": "#616161",
-		"scrollbarSlider.activeBackground": "#61616150",
-		"editorSuggestWidget.highlightForeground": "#616161",
-		"textLink.foreground": "#616161",
-		"progressBar.background": "#616161",
-		"pickerGroup.foreground": "#616161",
-		"tab.activeBorder": "#616161",
-		"notificationLink.foreground": "#616161",
-		"editorWidget.border": "#616161"
+		"activityBarBadge.background": "#FF4081",
+		"list.activeSelectionForeground": "#FF4081",
+		"list.inactiveSelectionForeground": "#FF4081",
+		"list.highlightForeground": "#FF4081",
+		"scrollbarSlider.activeBackground": "#FF408150",
+		"editorSuggestWidget.highlightForeground": "#FF4081",
+		"textLink.foreground": "#FF4081",
+		"pickerGroup.foreground": "#FF4081",
+		"tab.activeBorder": "#FF4081",
+		"notificationLink.foreground": "#FF4081",
+		"editorWidget.border": "#FF4081",
+		"editorWidget.resizeBorder": "#FF4081",
+		"settings.modifiedItemIndicator": "#FF4081",
+		"settings.headerForeground": "#FF4081",
+		"panelTitle.activeBorder": "#FF4081",
+		"breadcrumb.activeSelectionForeground": "#FF4081",
+		"menu.selectionForeground": "#FF4081",
+		"menubar.selectionForeground": "#FF4081"
 	},
 	//#endregion
 	//#region settings
@@ -60,36 +64,36 @@
 	"discord.lowerDetailsIdle": "🌌 idle",
 	"discord.lowerDetailsNotFound": "n/a",
 	"discord.smallImage": "vscode",
-	"terminal.integrated.fontFamily": "Ubuntu Mono", /* Liga Ubuntu Mono */
 	"editor.fontFamily": "Ubuntu Mono",
+	"terminal.integrated.fontFamily": "Ubuntu Mono", /* Liga Ubuntu Mono */
 	"editor.fontLigatures": true,
 	"editor.fontSize": 16,
 	"editor.lineHeight": 0,
 	"editor.cursorStyle": "line",
-	"editor.wordWrap": "on",
 	"editor.smoothScrolling": true,
 	"editor.minimap.enabled": false,
 	"editor.renderWhitespace": "all",
 	"editor.insertSpaces": false,
-	"editor.detectIndentation": false,
+	"editor.detectIndentation": true,
+	"editor.codeLens": false,
+	"editor.wordWrap": "on",
 	"explorer.confirmDragAndDrop": false,
 	"explorer.openEditors.visible": 0,
 	"extensions.ignoreRecommendations": true,
 	"files.autoSave": "afterDelay",
+	"files.associations": {
+		"*.inc": "rainmeter",
+		"*.ccf": "rainmeter",
+		"*.cci": "rainmeter"
+	},
 	"git.confirmSync": false,
 	"git.autofetch": true,
 	"git.enableSmartCommit": true,
 	"git.countBadge": "tracked",
-	"materialTheme.accent": "Graphite",
-	"materialTheme.accentPrevious": "Cyan",
-	"materialTheme.fixIconsRunning": false,
-	"materialTheme.autoApplyIcons": false,
+	"materialTheme.accent": "Pink",
 	"python.linting.enabled": false,
 	"php.memoryLimit": "2000M",
-	"powermode.enableShake": false,
-	"powermode.enabled": true,
-	"powermode.enableStatusBarComboCounter": false,
-	"powermode.enableStatusBarComboTimer": false,
+	"search.usePCRE2": true,
 	"terminal.integrated.copyOnSelection": true,
 	"terminal.integrated.cursorBlinking": true,
 	"terminal.integrated.cursorStyle": "line",
@@ -109,9 +113,6 @@
 	"zenMode.hideStatusBar": false,
 	"zenMode.hideTabs": false,
 	"zenMode.hideActivityBar": false,
-	"files.associations": {
-		"*.inc": "rainmeter"
-	},
 	//#endregion
 
 	/*
@@ -123,12 +124,14 @@
 		AutoHotKey                               | slevesque
 		Build and Run                            | olback
 		C/C++                                    | Microsoft
+		color-exchange                           | IronLu233
 		Discord Presence                         | Noel
+		Document This                            | Joel Day
 		filesize                                 | Matheus Kautzmann
 		ftp-sync                                 | Lukasz Wronski
+		Git History                              | Don Jayamanne
 		gitignore                                | CodeZombie
 		HTML CSS Support                         | ecmel
-		Ini for VSCode                           | David Wang
 		Javascript (ES6) code snippets           | charalampos karypidis
 		Latest TypeScript and Javascript Grammar | Microsoft
 		Lua                                      | keyring
@@ -137,11 +140,13 @@
 		PHP Debug                                | Felix Becker
 		PHP Extension Pack                       | Felix Becker
 		PHP Intellisense                         | Felix Becker
-		Power Mode                               | Cody Hoover
+		Polacode                                 | P & P
 		PowerShell                               | Microsoft
+		Prettify JSON                            | Mohsen Azimi
 		Project Name in Status Bar               | mujichOk
 		Python                                   | Microsoft
 		Rainbow CSV                              | mechatroner
+		Rainmeter Support                        | will-shaw
 		Rutoa                                    | Minin
 		XML Tools                                | Josh Johnson
 
