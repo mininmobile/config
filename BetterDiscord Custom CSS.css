@@ -4,16 +4,14 @@
 @import url("https://raw.githack.com/Customa/Customa/master/Base/selection.m.css");
 @import url("https://raw.githack.com/Customa/Customa/master/Base/tooltip.m.css");
 
+@import url('https://raw.githack.com/Customa/Customa/master/Chat/betterBlock.m.css');
 @import url('https://raw.githack.com/Customa/Customa/master/Chat/betterCompact.m.css');
-@import url('https://raw.githack.com/Customa/Customa/master/Chat/newEditIcon.m.css');
 @import url("https://raw.githack.com/Customa/Customa/master/Chat/codeBlockLanguages.m.css");
 @import url("https://raw.githack.com/Customa/Customa/master/Chat/guildsWrapper.m.css");
-/*@import url("https://raw.githack.com/Customa/Customa/master/Chat/channelsWrapper.m.css");*/
-/*@import url("https://raw.githack.com/Customa/Customa/master/Chat/dualGuilds.m.css");*/
+@import url('https://raw.githack.com/Customa/Customa/master/Chat/newEditIcon.m.css');
+@import url('https://raw.githack.com/Customa/Customa/master/Chat/oldChannelSelect.m.css');
 
-/*@import url("https://raw.githack.com/Customa/Customa/master/Misc/rainbow.m.css");*/
-
-:root {
+@import url("https://raw.githack.com/Customa/Customa/master/Sidebar/sidebarModifier.m.css");:root {
     --c: 250, 0, 70;
     --DisplayEmbedPill: block;
     --DisplayNoConnectionBackdraw: none;
@@ -27,7 +25,12 @@
     --ColTrue: var(--ColAccent);
     --ColTextSelection: rgba(var(--c), 0.9);
     --ColTooltip: var(--ColAccent);
-    --FilterNoHover: grayscale(0%);
+    --FilterNoHover: grayscale(50%);
+    --DurationSidebarMod: 0.4s;
     --FontFamily: "Ubuntu";
     --FontMonoFamily: "Ubuntu Mono";
+}
+
+#app-mount > :first-child {
+	display: none;
 }
