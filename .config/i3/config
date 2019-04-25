@@ -1,7 +1,16 @@
+#
+# zvava's i3 config
+#
+# @zvava@toot.cafe
+# https://github.com/mininmobile/config
+#
+
+# misc
 set $mod Mod4
-
 floating_modifier $mod
+focus_follows_mouse no
 
+# color variables
 set $bg-color				#161621
 set $inactive-bg-color		#161621
 set $text-colors			#ffffff
@@ -10,6 +19,7 @@ set $accent					#fa0046
 set $urgent-bg-color		#fa0046
 set $indicator-color		#161621
 
+# worspace variables
 set $workspace1 "1"
 set $workspace2 "2"
 set $workspace3 "3"
@@ -21,28 +31,32 @@ set $workspace8 "8"
 set $workspace9 "9"
 set $workspace10 "10"
 
+# window workspaces
 assign [class="Firefox"] $workspace8
 assign [class="discord"] $workspace9
 
+# window styles
+font pango:Ubuntu Regular 11
 hide_edge_borders none
+for_window [class="Pavucontrol"] floating enable
+for_window [class="Kalu"] floating enable
 for_window [class="^((?!iscord).)*$"] border pixel 4
 for_window [class="iscord"] border pixel 0
-gaps outer 6
-gaps inner 12
-
-font pango:Roboto 8
 
 # startup apps
-# launch polybar (bar)
-# launch feh (set wallpaper)
-# launch compton (fading transiton)
-# do what siji ont tells me to say (font shit)
 exec firefox
-exec polybar example &
-exec_always feh --bg-fill ~/Pictures/Wallpapers/solid\ color#212126.png
-exec --no-startup-id compton -f -c -C -D 5
-exec xset +fp /home/minin/.fonts
-exec xset fp rehash
+exec discord-canary
+
+# begin background apps
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec --no-startup-id nm-applet
+exec --no-startup-id blueman-applet
+exec --no-startup-id "nitrogen --restore"
+exec --no-startup-id "sh ~/.screenlayout/the\ big\ three.sh"
+exec --no-startup-id "polybar epicbar"
+exec --no-startup-id "sleep 2s && kalu"
+exec --no-startup-id "compton -fD 5"
+exec_always "feh --bg-fill ~/Pictures/Wallpapers/scott-webb-1486563-unsplash.jpg"
 
 # launch dmenu (default application launcher for i3, with custom options)
 bindsym $mod+d exec dmenu_run -fn "Roboto" -nb "$bg-color" -sb "$urgent-bg-color"
@@ -55,10 +69,10 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 # launch i3 lock (starts i3lock lock screen)
 bindsym $mod+Shift+x exec "i3lock -u -c '$bg-color' -p default"
 # launch screenshot (scrot)
-bindsym Print exec "scrot -s -e 'mv $f ~/Pictures/Screenshots/'"
+bindsym Print exec "flameshot gui"
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec termite
 # kill focused window
 bindsym $mod+Shift+q kill
 
@@ -74,11 +88,13 @@ bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
+# change new window position
 bindsym $mod+h split h
 bindsym $mod+v split v
 
+# toggle fullscreen
 bindsym $mod+f fullscreen toggle
-
+# toggle tiling
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
@@ -93,6 +109,18 @@ bindsym $mod+a focus parent
 # focus the child container
 bindsym $mod+Shift+a focus child
 
+# assign workspaces to monitors
+workspace $workspace1 output primary
+workspace $workspace2 output primary
+workspace $workspace3 output primary
+workspace $workspace4 output primary
+workspace $workspace5 output primary
+workspace $workspace6 output primary
+workspace $workspace7 output primary
+workspace $workspace8 output HDMI0
+workspace $workspace9 output DVI1
+workspace $workspace10 output DVI1
+# switch to workspce
 bindsym $mod+1 workspace $workspace1
 bindsym $mod+2 workspace $workspace2
 bindsym $mod+3 workspace $workspace3
@@ -103,7 +131,7 @@ bindsym $mod+7 workspace $workspace7
 bindsym $mod+8 workspace $workspace8
 bindsym $mod+9 workspace $workspace9
 bindsym $mod+0 workspace $workspace10
-
+# move window to workspace
 bindsym $mod+Shift+1 move container to workspace $workspace1
 bindsym $mod+Shift+2 move container to workspace $workspace2
 bindsym $mod+Shift+3 move container to workspace $workspace3
@@ -115,6 +143,9 @@ bindsym $mod+Shift+8 move container to workspace $workspace8
 bindsym $mod+Shift+9 move container to workspace $workspace9
 bindsym $mod+Shift+0 move container to workspace $workspace10
 
+# resize move
+bindsym $mod+r mode "resize"
+
 mode "resize" {
 	bindsym Left resize shrink width 10 px or 10 ppt
 	bindsym Down resize grow height 10 px or 10 ppt
@@ -125,8 +156,7 @@ mode "resize" {
 	bindsym Escape mode "default"
 }
 
-bindsym $mod+r mode "resize"
-
+## i3 bar
 #bar {
 #	status_command i3blocks -c ~/.config/i3/i3blocks.conf
 #	position top
@@ -145,3 +175,27 @@ client.focused			$bg-color			$bg-color			$text-color				$indicator-color
 client.unfocused		$inactive-bg-color	$inactive-bg-color	$inactive-text-color	$indicator-color
 client.focused_inactive	$inactive-bg-color	$inactive-bg-color	$inactive-text-color	$indicator-color
 client.urgent			$urgent-bg-color	$urgent-bg-color	$text-color				$indicator-color
+
+# media key volume controls
+bindsym XF86AudioRaiseVolume exec amixer -D pulse sset Master 5%+ && pkill -RTMIN+1 i3blocks
+bindsym XF86AudioLowerVolume exec amixer -D pulse sset Master 5%- && pkill -RTMIN+1 i3blocks
+bindsym $mod+XF86AudioRaiseVolume exec amixer -D pulse sset Master 1%+ && pkill -RTMIN+1 i3blocks
+bindsym $mod+XF86AudioLowerVolume exec amixer -D pulse sset Master 1%- && pkill -RTMIN+1 i3blocks
+bindsym XF86AudioMute exec amixer sset Master toggle && killall -USR1 i3blocks
+
+# media key media controls
+bindsym XF86AudioPlay exec mocp --toggle-pause
+bindsym XF86AudioPause exec mocp --toggle-pause
+bindsym XF86AudioStop exec mocp --togle-pause
+bindsym XF86AudioNext exec mocp --next
+bindsym XF86AudioPrev exec mocp --previous
+
+# function key media controls
+bindsym $mod+F5 exec mocp --toggle-pause
+bindsym $mod+F6 exec mocp --stop
+bindsym $mod+F7 exec mocp --previous
+bindsym $mod+F8 exec mocp --next
+
+# gaps
+gaps outer 6
+gaps inner 12
