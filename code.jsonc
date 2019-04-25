@@ -1,9 +1,5 @@
 {
 	//#region paths
-	"git.path": "F:\\Program Files\\Git\\cmd\\git.exe",
-	"python.pythonPath": "F:\\Program Files (x86)\\Python36-32\\python.exe",
-	"php.executablePath": "F:\\Data\\Documents\\Programs\\php-7.2.6-Win32-VC15-x86\\php.exe",
-	"php.validate.executablePath": "F:\\Data\\Documents\\Programs\\php-7.2.6-Win32-VC15-x86\\php.exe",
 	"terminal.integrated.shell.windows": "C:\\WINDOWS\\System32\\cmd.exe",
 	//#endregion
 	//#region colors
@@ -77,6 +73,8 @@
 	"editor.detectIndentation": true,
 	"editor.codeLens": false,
 	"editor.wordWrap": "on",
+	"editor.cursorBlinking": "phase",
+	"editor.cursorSmoothCaretAnimation": true,
 	"explorer.confirmDragAndDrop": false,
 	"explorer.openEditors.visible": 0,
 	"extensions.ignoreRecommendations": true,
@@ -113,48 +111,43 @@
 	"zenMode.hideStatusBar": false,
 	"zenMode.hideTabs": false,
 	"zenMode.hideActivityBar": false,
+	"editor.multiCursorModifier": "ctrlCmd",
+	"explorer.confirmDelete": false,
 	//#endregion
 
 	/*
 
 	extensions___
-		Activus Bar                              | Gruntfuggly
-		Auto Close Tag                           | Jun Han
-		Auto Rename Tag                          | Jun Han
-		AutoHotKey                               | slevesque
-		Build and Run                            | olback
-		C/C++                                    | Microsoft
-		color-exchange                           | IronLu233
-		Discord Presence                         | Noel
-		Document This                            | Joel Day
-		filesize                                 | Matheus Kautzmann
-		ftp-sync                                 | Lukasz Wronski
-		Git History                              | Don Jayamanne
-		gitignore                                | CodeZombie
-		HTML CSS Support                         | ecmel
-		Javascript (ES6) code snippets           | charalampos karypidis
-		Latest TypeScript and Javascript Grammar | Microsoft
-		Lua                                      | keyring
-		npm                                      | egamma
-		npm Intellisense                         | Christian Kohler
-		PHP Debug                                | Felix Becker
-		PHP Extension Pack                       | Felix Becker
-		PHP Intellisense                         | Felix Becker
-		Polacode                                 | P & P
-		PowerShell                               | Microsoft
-		Prettify JSON                            | Mohsen Azimi
-		Project Name in Status Bar               | mujichOk
-		Python                                   | Microsoft
-		Rainbow CSV                              | mechatroner
-		Rainmeter Support                        | will-shaw
-		Rutoa                                    | Minin
-		XML Tools                                | Josh Johnson
+		Activus Bar									| Gruntfuggly
+		Auto Close Tag								| Jun Han
+		Auto Rename Tag								| Jun Han
+		Build and Run								| olback
+		Discord Presence							| Noel
+		Document This								| Joel Day
+		filesize									| Matheus Kautzmann
+		ftp-sync									| Lukasz Wronski
+		Git History									| Don Jayamanne
+		gitignore									| CodeZombie
+		HTML CSS Support							| ecmel
+		Javascript (ES6) code snippets				| charalampos karypidis
+		Latest TypeScript and Javascript Grammar	| Microsoft
+		Lua											| keyring
+		npm											| egamma
+		npm Intellisense							| Christian Kohler
+		Polacode									| P & P
+		PowerShell									| Microsoft
+		Prettify JSON								| Mohsen Azimi
+		Python										| Microsoft
+		Rainbow CSV									| mechatroner
+		Rainmeter Support							| will-shaw
+		Rutoa										| Minin
+		XML Tools									| Josh Johnson
 
 	icon packs___
-		Nomo Dark Icon Theme                     | be5invis
+		Nomo Dark Icon Theme						| be5invis
 
 	themes___
-		Material Theme                           | Mattia Astorino
+		Material Theme								| Mattia Astorino
 
 	*/
 }
