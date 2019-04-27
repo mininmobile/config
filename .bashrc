@@ -18,4 +18,7 @@ fi
 # default applications
 BROWSER=/usr/bin/firefox
 EDITOR=/usr/bin/code-oss
+TERMINAL=/usr/bin/termite
+
+# environment variables
 MONITOR=DisplayPort-0
