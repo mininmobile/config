@@ -50,8 +50,8 @@ browser = firefox
 #cursor = #dcdccc
 #cursor_foreground = #dcdccc
 
-foreground = #ff99ff
-foreground_bold = #ffccff
+foreground = #dcccdc
+foreground_bold = #fdddfd
 background = #212126
 
 # If unset, will reverse foreground and background
