@@ -14,7 +14,7 @@ width									= 100%
 height									= 24
 radius									= 0
 fixed-center							= true
-monitor									= ${env:MONITOR:DisplayPort-0}
+;monitor								= ${env:MONITOR:DisplayPort-0}
 
 background								= ${colors.background}
 foreground								= ${colors.foreground}
@@ -176,6 +176,10 @@ battery									= BAT0
 adapter									= AC
 full-at									= 90
 
+format-full-prefix						= "bat "
+format-full-prefix-foreground			= ${colors.foreground-alt}
+format-full								= <label-full>
+
 format-charging-prefix					= "bat +"
 format-charging-prefix-foreground		= ${colors.foreground-alt}
 format-charging							= <label-charging>
@@ -183,7 +187,6 @@ format-charging							= <label-charging>
 format-discharging-prefix				= "bat -"
 format-discharging-prefix-foreground	= ${colors.foreground-alt}
 format-discharging						= <label-discharging>
-format-discharging-underline			= ${colors.accent}
 
 [module/powermenu]
 type									= custom/menu
