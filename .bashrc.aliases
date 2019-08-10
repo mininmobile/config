@@ -13,6 +13,8 @@ alias cd..='cd ..'
 
 alias scrot=$'scrot -mzofq 100 \'%Y-%m-%d_%H%M%S@$a.png\' -e \'mv $f ~/Pictures/Screenshots/\''
 
+alias pbcopy='xsel --clipboard --input'
+alias pbpaste='xsel --clipboard --output'
 alias journalctl='sudo journalctl'
 alias systemctl='sudo systemctl'
 alias se='ls /usr/bin | grep'
