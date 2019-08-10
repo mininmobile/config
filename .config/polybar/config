@@ -1,31 +1,36 @@
+;
+; zvava's polybar config
+;
+; @zvava@toot.cafe
+;
+
 [colors]
 background								= #161621
-background-alt							= #161621
+background-alt							= #212126
 foreground								= #dddddd
 foreground-alt							= #999999
 accent									= #fa0046
 
 primary									= ${colors.accent}
-secondary								= ${colors.accent}
-alert									= ${colors.accent}
+secondary								= #e91e63
+alert									= #f44336
 
 [bar/epicbar]
 width									= 100%
 height									= 24
-radius									= 0
+radius									= 5
 fixed-center							= true
-;monitor								= ${env:MONITOR:DisplayPort-0}
 
 background								= ${colors.background}
 foreground								= ${colors.foreground}
+
+border-size								= 12
+border-bottom-size						= 0
 
 font-0									= ubuntu mono:pixelsize=9;1
 
 line-size								= 1
 line-color								= ${colors.accent}
-
-border-size								= 0
-border-color							= #161621
 
 padding-left							= 2
 padding-right							= 1
