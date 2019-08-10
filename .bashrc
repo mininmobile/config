@@ -8,17 +8,18 @@
 [[ $- != *i* ]] && return
 
 # prompt
-PS1='[\u@\h \w]\$ '
+PS1='\w \$ '
 
 # aliases
 if [ -e ~/.bashrc.aliases ] ; then
-	source ~/.bashrc.aliases
+        source ~/.bashrc.aliases
 fi
 
 # default applications
 BROWSER=/usr/bin/firefox
 EDITOR=/usr/bin/code-oss
-TERMINAL=/usr/bin/termite
+TERMINAL=/usr/bin/kitty
 
 # environment variables
-MONITOR=DisplayPort-0
+#MONITOR=DisplayPort-0
+PATH=$PATH:~/.scripts
