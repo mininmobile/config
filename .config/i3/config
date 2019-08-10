@@ -38,10 +38,8 @@ assign [class="discord"] $workspace9
 # window styles
 font pango:Ubuntu Regular 11
 hide_edge_borders none
-for_window [class="Pavucontrol"] floating enable
-for_window [class="Kalu"] floating enable
-for_window [class="^((?!iscord).)*$"] border pixel 4
-for_window [class="iscord"] border pixel 0
+for_window [class="(Pavucontrol|minecraft-launcher|nm-connection-editor)"] floatin>
+for_window [class=".*"] border pixel 0
 
 # startup apps
 exec firefox
@@ -51,12 +49,9 @@ exec discord-canary
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id nm-applet
 exec --no-startup-id blueman-applet
-exec --no-startup-id "nitrogen --restore"
-exec --no-startup-id "sh ~/.screenlayout/the\ big\ three.sh"
 exec --no-startup-id "polybar epicbar"
-exec --no-startup-id "sleep 2s && kalu"
-exec --no-startup-id "compton -fD 5"
-exec_always "feh --bg-fill ~/Pictures/Wallpapers/scott-webb-1486563-unsplash.jpg"
+exec --no-startup-id "compton -cCfD 5"
+exec_always "feh --bg-fill ~/Pictures/Wallpapers/pawel-czerwinski-rNQ-xlJj_EM-unsplash.jpg"
 
 # launch dmenu (default application launcher for i3, with custom options)
 bindsym $mod+d exec dmenu_run -fn "Roboto" -nb "$bg-color" -sb "$urgent-bg-color"
@@ -199,3 +194,4 @@ bindsym $mod+F8 exec mocp --next
 # gaps
 gaps outer 6
 gaps inner 12
+border_radius 3
