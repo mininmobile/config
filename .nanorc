@@ -11,6 +11,7 @@ include ~/.nano/*.nanorc
 # keymap
 # taken and uncommented from lines 279-305 of /etc/nanorc
 bind   ^Q  exit          all
+bind   ^Q  cancel        yesno
 bind   ^H  help          all
 bind   ^H  exit          help
 bind   ^F  whereis       all
@@ -33,8 +34,8 @@ bind   ^Y  speller       main
 unbind ^K                all
 unbind ^U                all
 bind   M-R redo          main
-bind   ^U  undo          main
-bind   ^E  redo          main
+bind   ^Z  undo          main
+bind   ^Y  redo          main
 unbind M-J               main
 unbind M-T               main
 
