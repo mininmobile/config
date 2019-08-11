@@ -1,0 +1,85 @@
+#
+# zvava's nanorc
+#
+# @zvava@toot.cafe
+#
+
+# syntax highlighting
+include /usr/share/nano/*.nanorc
+include ~/.nano/*.nanorc
+
+# keymap
+# taken and uncommented from lines 279-305 of /etc/nanorc
+bind   ^Q  exit          all
+bind   ^H  help          all
+bind   ^H  exit          help
+bind   ^F  whereis       all
+bind   ^G  findnext      all
+bind   ^B  wherewas      all
+bind   ^D  findprevious  all
+bind   ^R  replace       main
+bind   ^W  writeout      main
+bind   ^O  insert        main
+unbind ^V                all
+unbind ^Y                all
+bind   M-X flipnewbuffer all
+bind   ^X  cut           all
+bind   ^C  copy          all
+bind   ^V  paste         all
+bind   ^P  curpos        main
+bind   ^T  gotoline      main
+bind   ^T  gotodir       browser
+bind   ^Y  speller       main
+unbind ^K                all
+unbind ^U                all
+bind   M-R redo          main
+bind   ^U  undo          main
+bind   ^E  redo          main
+unbind M-J               main
+unbind M-T               main
+
+# toggles
+# todo: sort, categorize
+set   afterends
+set   atblanks
+set   autoindent
+unset backup
+unset allow_insecure_backup
+set   backupdir              ~/.nano.backups
+set   boldtext
+set   breaklonglines
+set   casesensitive
+unset constantshow
+unset cutfromcursor
+set   emptyline
+set   errorcolor             red,normal
+set   fill                   0
+set   guidestripe            80
+set   historylog
+unset jumpyscrolling
+set   linenumbers
+set   mouse
+unset multibuffer
+unset noconvert
+set   nohelp
+unset nonewlines
+set   numbercolor            white,normal
+set   positionlog
+set   quickblank
+unset rawsequences
+unset rebinddelete
+set   regexp
+set   selectedcolor          normal,magenta
+set   smarthome
+set   stripecolor            normal,magenta
+unset suspend
+set   tabsize                4
+unset tabstospaces
+unset tempfile
+set   trimblanks
+set   unix
+unset view
+set   whitespace             "»⋅"
+unset wordbounds
+set   wordchars              '
+set   zap
