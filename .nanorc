@@ -9,9 +9,8 @@ include /usr/share/nano/*.nanorc
 include ~/.nano/*.nanorc
 
 # keymap
-# taken and uncommented from lines 279-305 of /etc/nanorc
 bind   ^Q  exit          all
-bind   ^Q  cancel        yesno
+bind   M-Q cancel        all
 bind   ^H  help          all
 bind   ^H  exit          help
 bind   ^F  whereis       all
@@ -54,7 +53,7 @@ unset constantshow
 unset cutfromcursor
 set   emptyline
 set   errorcolor             red,normal
-set   fill                   0
+set   fill                   -1
 set   guidestripe            80
 set   historylog
 unset jumpyscrolling
@@ -72,6 +71,7 @@ unset rebinddelete
 set   regexp
 set   selectedcolor          normal,magenta
 set   smarthome
+set   softwrap
 set   stripecolor            normal,magenta
 unset suspend
 set   tabsize                4
