@@ -111,8 +111,7 @@ gmit() {
 # If no arguments, push out to current branch.
 # Otherwise, push to given branch.
 gout() {
-    [ "$1" ] || set -- origin "$(git rev-parse --symbolic-full-name --abbrev-ref
-HEAD)"
+    [ "$1" ] || set -- origin "$(git rev-parse --symbolic-full-name --abbrev-ref HEAD)"
     [ "$2" ] || set -- origin "$1"
     git push -u "$@"
 }
