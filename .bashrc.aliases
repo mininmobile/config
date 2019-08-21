@@ -4,24 +4,27 @@
 # @zvava@toot.cafe
 #
 
-alias ls='ls --color=auto'
-alias la='ls -a'
-
-alias l='sl'
-
-alias cd..='cd ..'
-
 alias scrot=$'scrot -mzofq 100 \'%Y-%m-%d_%H%M%S@$a.png\' -e \'mv $f ~/Pictures/Screenshots/\''
+alias scrap=$'scrot -a $(slop -f %x,%y,%w,%h)'
 
+alias ls='ls --color=auto'
+alias cp='cp -i'
+alias df='df -h'
+alias free='free -h'
 alias pbcopy='xsel --clipboard --input'
 alias pbpaste='xsel --clipboard --output'
 alias journalctl='sudo journalctl'
 alias systemctl='sudo systemctl'
 alias se='ls /usr/bin | grep'
 
+alias la='ls -a'
+alias dir='ls -lh'
+alias cd..='cd ..'
+alias l='sl'
+
 export QT_STYLE_OVERRIDE=gtk
 export QT_SELECT=qt5
 
 if [[ $LANG = '' ]]; then
-        export LANG=en_US.UTF-8
+	export LANG=en_US.UTF-8
 fi

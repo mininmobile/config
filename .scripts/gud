@@ -1,5 +1,43 @@
 #!/bin/sh
-# git wrapper (yoinked from mitchweaver/bin)
+# git wrapper (from mitchweaver/bin)
+
+# Usage: gud [OPTION] [...]
+# Git wrapper for Gitting Gudder.
+# 
+# Arguments (defaults to -s):
+#     -a              git add
+#     -m              [git add] git commit -m
+#     -o              git push -u
+#     -of             git push -u --force
+#     -u              gud -amo (equivalent to)
+#     -c              git clone
+#     -gh             git clone (from github)
+#     -p              git pull
+#     -pf             git pull --force
+#     -d              git diff
+#     -s              git status
+#     -k              git checkout
+#     -kd             git push --delete origin
+#     -b              git branch
+#     -r              git remote add
+#     -rv             git remote -v
+#     -i              git init
+#     -l              git log --source
+#     -f              git fetch
+#     -gc             git gc
+#     -mv             git mv
+#     -rm             git rm
+#     --base      -bs git rebase -i --hard
+#     --bort      -bt git rebase --abort
+#     --reset     -rs git reset --hard
+#     --cherry    -ch git cherry-pick
+#     --stash     -st git stash
+#     --blame     -bl git blame
+#     --untracked -un git ls-files --others --exclude-standard
+#     --tmp           sets up a temporary git repo that you can push/pull from
+#                     your  directory.  great for backup when working on quick
+#                     new ideas / scratchpads.
+#     --help -h       displays this help and exits
 
 msg() { printf "%s\n" "$@" ; }
 die() { >&2 msg "$@" ; exit 1 ; }
@@ -29,15 +67,15 @@ main() {
         -gc) shift ; git gc "$@" ;;
         -mv) shift ; git mv "$@" ;;
         -rm) shift ; git rm "$@" ;;
-        -base|-bs) shift ; gbase "$@" ;;
-        -bort|-bt) shift ; git rebase --abort "$@" ;;
-        -reset|-rs) shift ; greset "$@" ;;
-        -cherry|-ch) shift ; git cherry-pick "$@" ;;
-        -stash|-st) shift ; git stash "$@" ;;
-        -blame|-bl) shift ; git blame "$@" ;;
-        -untracked|-un) guntracked ;;
-        -tmp) gtmp ;;
-        -h) head -n 40 "$0" | tail -n 31 ;;
+        --base|-bs) shift ; gbase "$@" ;;
+        --bort|-bt) shift ; git rebase --abort "$@" ;;
+        --reset|-rs) shift ; greset "$@" ;;
+        --cherry|-ch) shift ; git cherry-pick "$@" ;;
+        --stash|-st) shift ; git stash "$@" ;;
+        --blame|-bl) shift ; git blame "$@" ;;
+        --untracked|-un) guntracked ;;
+        --tmp) gtmp ;;
+        --help|-h) head -n 40 "$0" | tail -n 37 | sed 's/# //g' ;;
     esac
 }
 
