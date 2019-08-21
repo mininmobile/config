@@ -1,0 +1,46 @@
+//
+// zvava's rofi theme
+//
+// @zvava@toot.cafe
+//
+
+* {
+	background-color: #161621;
+	color:            #dddddd;
+}
+
+#window {
+	border-radius: 5px;
+	children:      [ inputbar, message, listview ];
+}
+
+/* display */
+
+#textbox {
+	padding: 24px;
+	font: "Ubuntu Regular 11";
+}
+
+/* run */
+
+#inputbar {
+    children: [ entry, case-indicator ];
+}
+
+#entry {
+	padding: 4px 47px;
+}
+
+#listview {
+    fixed-height: true;
+    scrollbar:    false;
+	lines:        12;
+}
+
+#element {
+    padding: 4px 0px 6px 32px;
+}
+
+#element.selected.normal {
+    background-color: #212126;
+}

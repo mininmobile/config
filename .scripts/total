@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# tally
+
+total=$1
+while echo $total ; do
+	echo -n '> '
+	read -r input
+
+	total=$(( $total + $input ))
+done

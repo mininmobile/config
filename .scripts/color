@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+color=$(colorpicker --short --one-shot 2> /dev/null)
+
+echo $color | xsel --clipboard --input
+
+echo $color | tr '[:upper:]' '[:lower:]'

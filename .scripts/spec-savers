@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# my redshift daemon wrapper thing (+xbacklight)
+
+while sleep 60 ; do
+	if [ $(date +%H) -ge 7 ] ; then
+		redshift -x
+		xbacklight --set 100;
+	fi
+
+	case $(date +%H:%M) in
+		20:30) redshift -O 1500; xbacklight --set 75;;
+		21:00) redshift -O 1250; xbacklight --set 50;;
+	esac
+done

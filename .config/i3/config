@@ -38,7 +38,7 @@ assign [class="discord"] $workspace9
 # window styles
 font pango:Ubuntu Regular 11
 hide_edge_borders none
-for_window [class="(Pavucontrol|minecraft-launcher|nm-connection-editor)"] floatin>
+for_window [class="(Pavucontrol|minecraft-launcher|nm-connection-editor)"] floating enable
 for_window [class=".*"] border pixel 0
 
 # startup apps
@@ -46,18 +46,19 @@ exec firefox
 exec discord-canary
 
 # begin background apps
-exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec --no-startup-id nm-applet
-exec --no-startup-id blueman-applet
+exec --no-startup-id "nm-applet"
+exec --no-startup-id "blueman-applet"
 exec --no-startup-id "polybar epicbar"
-exec --no-startup-id "compton -cCfD 5"
-exec_always "feh --bg-fill ~/Pictures/Wallpapers/pawel-czerwinski-rNQ-xlJj_EM-unsplash.jpg"
+exec --no-startup-id "compton -c"
+exec_always          "/home/zvava/.scripts/wallpaper"
 
-# launch dmenu (default application launcher for i3, with custom options)
-bindsym $mod+d exec dmenu_run -fn "Roboto" -nb "$bg-color" -sb "$urgent-bg-color"
+# open launcher (rofi in run mode)
+bindsym $mod+d exec rofi -show run
+# tab menu (rofi in window mode)
+bindsym $mod+Tab exec rofi -show window
 # reload the configuration file
 bindsym $mod+Shift+c reload
-# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+# restart i3 inplace (preserves your layout/session)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
@@ -67,7 +68,7 @@ bindsym $mod+Shift+x exec "i3lock -u -c '$bg-color' -p default"
 bindsym Print exec "flameshot gui"
 
 # start a terminal
-bindsym $mod+Return exec termite
+bindsym $mod+Return exec kitty
 # kill focused window
 bindsym $mod+Shift+q kill
 
