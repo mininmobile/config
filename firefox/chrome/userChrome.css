@@ -1,1 +1,82 @@
-@import url("https://raw.githack.com/Customa/Customa-Firefox/master/Base/base.m.css");
+/*@namespace url("https://mozilla.org/keymaster/gatekeeper/there.is.only.xul");*/
+
+:root {
+	--text-color: #dddddd;
+	--background-color: #161621;
+	--foreground-color: #212126;
+}
+
+/* hide fullscreen indicator */
+@-moz-document url(chrome://browser/content/browser.xul) {
+	#fullscreen-warning {
+		display: none !important;
+	}
+}
+
+/* override xul colors */
+:root {
+	--lwt-text-color: var(--text-color) !important;
+	--arrowpanel-color: var(--text-color) !important;
+
+	--lwt-accent-color: var(--background-color) !important;
+	--toolbar-bgcolor: var(--background-color) !important;
+	
+	--lwt-toolbar-field-color: var(--text-color) !important;
+	--lwt-toolbar-field-background-color: var(--background-color) !important;
+	--lwt-toolbar-field-border-color: var(--background-color) !important;
+	
+	--lwt-toolbarbutton-icon-fill: var(--text-color) !important;
+	--lwt-toolbarbutton-hover-background: transparent !important;
+	--lwt-toolbarbutton-active-background: transparent !important;
+	
+	--arrowpanel-background: var(--background-color) !important;
+	--arrowpanel-border-color: var(--background-color) !important;
+}
+
+/* hide urlbar shadow */
+#urlbar { box-shadow: none !important; }
+
+/* tab hover effect */
+tab, toolbarbutton {
+	filter: grayscale(50%);
+	opacity: 0.5;
+	transition: opacity 0.2s, filter 0.2s !important;
+}
+
+tab:hover, tab[selected="true"],
+toolbarbutton:hover,
+toolbarbutton[open="true"] {
+	filter: grayscale(0);
+	opacity: 1;
+}
+
+/* only show close button on active tab */
+tab .tab-close-button { display: none !important; }
+tab[selected="true"] .tab-close-button { display: block !important; }
+tab[pinned="true"] .tab-close-button { display: none !important; }
+
+/* tab background color fix */
+.tab-background { background: transparent !important; }
+
+/* hide tab highlight line */
+.tab-line { display: none; }
+/* hide tab dividers */
+.tabbrowser-tab::after, .tabbrowser-tab::before { content: none !important; }
+/* hide other tab line */
+.tab-background { border: none !important; }
+#nav-bar { box-shadow: none !important; }
+/* hide tab attention */
+.tab-content { background-image: none !important; }
+
+/* hide folder icon */
+toolbarbutton[container="true"] .toolbarbutton-icon { display: none; }
+/* smol folder text */
+toolbarbutton[container="true"] { font-size: 11px; }
+/* fix bookmark padding */
+#PersonalToolbar toolbarbutton {
+	margin: 0 !important;
+	padding: 1px 2px !important;
+}
+
+/* hide useless divider */
+#navigator-toolbox { border-bottom: none !important; }
