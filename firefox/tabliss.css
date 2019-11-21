@@ -1,0 +1,105 @@
+body { text-transform: lowercase; }
+* { font-size: 1rem !important; }
+
+/* windows */
+.Weather, .Links, .Message, .container > .Time {
+	border: 1px solid #212126;
+	border-top: none;
+	position: absolute;
+}
+.Weather::before, .Links::before, .Message::before, .container > .Time::before {
+	content: "› untitled";
+	padding: 4px 8px;
+	background: #212126;
+	color: #dddddd;
+	display: block;
+	font-size: 11px;
+	text-align: left;
+}
+
+/* weather window */
+.Weather::before { content: "› weather"; }
+.Weather { top: unset !important; bottom: 2em; right: 2em !important; }
+/* links window */
+.Links::before { content: "› shortcuts"; }
+.Links { left: 2rem; top: 2rem; }
+/* message window */
+.Message::before { content: "› message"; }
+.Message { left: 2rem; bottom: 2rem; }
+/* time window */
+.container > .Time::before { content: "› time"; }
+.container > .Time { right: 2em; top: 2em; }
+
+/* repair links */
+.Links { margin: 0 !important; }
+.Links a {
+	margin: 0;
+	margin: 0.25rem 2.5rem 0.25rem 2rem;
+	text-align: left;
+	text-decoration: none;
+}
+.Links a:first-child { margin-top: 1.5rem; }
+.Links a:last-child { margin-bottom: 1.5rem; }
+.Links a::before {
+	content: "› " ;
+	opacity: 0.5;
+}
+.Links a:hover { font-style: italic; }
+.Links a:hover::before { font-style: normal; }
+
+/* repair time */
+.container > .Time {
+	width: 8rem;
+	height: 5rem;
+	margin: 0;
+}
+.Time.Digital span {
+	line-height: 3.5rem;
+	vertical-align: middle;
+}
+
+/* repair message */
+.Message {
+	width: 22rem;
+	margin: 0 !important;
+}
+.Message h3 {
+	margin: 2rem;
+	white-space: normal !important;
+	text-align: justify;
+}
+
+/* weather temperature */
+.Weather svg.feather { display: none; }
+.Weather .summary { margin: 1.5rem 1.5rem 0 !important; }
+.Weather .summary:only-child { margin: 1.5rem !important; }
+.Weather .temperature { font-weight: bold; }
+.Weather .temperature::before {
+	content: "temperature";
+	font-weight: normal;
+	float: left;
+}
+
+/* weather info */
+.Weather dd { margin: 0 1.5rem 0 0; }
+.Weather dt { float: end; }
+.Weather .details {
+	margin: 0 1.5rem 1.5rem !important;
+	padding: 0 !important;
+}
+.Weather dl {
+	margin: 0 !important;
+	display: flex;
+	flex-direction: row-reverse;
+	justify-content: space-between;
+}
+
+/* invisible overlay */
+.Overlay:hover { background: transparent; }
+.Overlay:hover svg { color: unset; }
+.Overlay {
+	margin: 1em;
+	top: unset;
+	bottom: 0;
+	opacity: 0;
+}
