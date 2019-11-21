@@ -1,2 +1,2 @@
 # config
-![preview](https://raw.githubusercontent.com/mininmobile/config/master/.preview.png)
+![preview](https://imgur.com/Fe52NkS.png)
