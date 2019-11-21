@@ -1,0 +1,105 @@
+//
+// zvava's waybar config
+//
+// @zvava@toot.cafe
+// https://github.com/mininmobile/config
+//
+
+[{
+    // top bar
+
+    "layer": "top",
+    "position": "top",
+    "modules-left": ["pulseaudio", "battery", "cpu", "temperature"],
+    "modules-center": ["clock"],
+    "modules-right": ["memory"],
+
+    // modules
+
+    "clock": {
+        "format": "<span foreground='#aaaaaa'>time</span> {:%H:%M}"
+    },
+
+    "cpu": {
+        "format": "<span foreground='#aaaaaa'>cpu</span> {usage}%",
+        "tooltip": false
+    },
+
+    "memory": {
+        "format": "<span foreground='#aaaaaa'>memory</span> {}%",
+        "format-alt": "<span foreground='#aaaaaa'>memory</span> {used:0.1f}g/{total:0.1f}g"
+    },
+
+    "temperature": {
+        "format": "{temperatureC}°",
+        "format-critical": "{temperatureC}°",
+        "critical-threshold": 60
+    },
+
+    "battery": {
+        "format": "<span foreground='#aaaaaa'>battery</span> {capacity}%",
+        "format-charging": "<span foreground='#aaaaaa'>+battery</span> {capacity}%",
+        "format-discharging": "<span foreground='#aaaaaa'>-battery</span> {capacity}%",
+        "format-alt": "<span foreground='#aaaaaa'>battery</span> {time}",
+        "tooltip": false
+    },
+
+    "pulseaudio": {
+        "format": "<span foreground='#aaaaaa'>volume</span> {volume}%",
+        "format-muted": "muted",
+        "scroll-step": 1,
+        "on-click": "pavucontrol",
+        "tooltip": false
+    },
+
+    "disk": {
+	    "interval": 60,
+	    "format": "<span foreground='#aaaaaa'>hdd</span> {percentage_used}%",
+		"path": "/",
+		"tooltip": false
+	}
+},
+
+{
+    // bottom bar
+
+    "layer": "top",
+    "position": "bottom",
+    "modules-left": ["sway/workspaces", "sway/mode"],
+    "modules-center": ["clock"],
+    "modules-right": ["network", "backlight", "tray"],
+
+	// modules
+
+    "sway/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": false,
+        "format": "{icon}",
+        "format-icons": {
+            "10": "0"
+        }
+    },
+
+    "sway/mode": {
+        "format": "<i>{}</i>"
+    },
+
+    "clock": {
+        "format": "<span foreground='#aaaaaa'>date</span> {:%m/%d}"
+    },
+
+    "backlight": {
+        "interval": 10,
+        "format": "<span foreground='#aaaaaa'>backlight</span> {percent}%",
+        "on-scroll-up": "light -A 1",
+        "on-scroll-down": "light -U 1"
+    },
+
+    "network": {
+        "format-wifi": "<span foreground='#aaaaaa'>wifi</span> {essid}",
+        "format-ethernet": "<span foreground='#aaaaaa'>ethernet</span> {ifname}",
+        "format-linked": "<span foreground='#aaaaaa'>ethernet</span> {ifname} (No IP)",
+        "format-disconnected": "<span foreground='#aaaaaa'>wifi</span> disconnected",
+        "format-alt": "<span foreground='#aaaaaa'>{ifname}</span> {ipaddr}/{cidr}"
+    }
+}]

@@ -1,113 +1,170 @@
-;
-; zvava's polybar config
-;
-; @zvava@toot.cafe
-;
+#
+# zvava's polybar config
+#
+# @zvava@toot.cafe
+#
 
 [colors]
+accent									= #fa0046
+
+alert									= ${colors.accent}
+
+selected								= #212126
+selected-alt							= #262631
+
 background								= #161621
 background-alt							= #212126
 foreground								= #dddddd
-foreground-alt							= #999999
-accent									= #fa0046
+foreground-alt							= #aaaaaa
 
-primary									= ${colors.accent}
-secondary								= #e91e63
-alert									= #f44336
-
-[bar/epicbar]
-width									= 100%
-height									= 24
-radius									= 5
+[bar/top]
 fixed-center							= true
 
-background								= ${colors.background}
-foreground								= ${colors.foreground}
-
-border-size								= 12
-border-bottom-size						= 0
-
-font-0									= ubuntu mono:pixelsize=9;1
-
-line-size								= 1
-line-color								= ${colors.accent}
-
-padding-left							= 2
+width									= 100%
+height									= 25
+padding-left							= 1
 padding-right							= 1
 
 module-margin-left						= 0
-module-margin-right						= 2
+module-margin-right						= 1
 
-modules-left							= i3
-modules-center							= date
-modules-right							= filesystem memory cpu pulseaudio powermenu
+border-size								= 12
+border-top-size							= 6
+border-bottom-size						= -6
 
-tray-position							= right
-tray-padding							= 2
+font-0									= ubuntu mono:pixelsize=9;1
+background								= ${colors.background}00
+foreground								= ${colors.foreground}
 
 cursor-click							= pointer
 cursor-scroll							= ns-resize
 
+modules-left							= vol bat cpu temp
+modules-center							= time
+modules-right							= mem fs
+
+[bar/bot]
+fixed-center							= true
+bottom									= true
+
+width									= 100%
+height									= 24
+padding-left							= 0
+padding-right							= 0
+
+border-size								= 12
+border-top-size							= -6
+border-bottom-size						= 11
+
+module-margin-left						= 0
+module-margin-right						= 0
+
+font-0									= ubuntu mono:pixelsize=9;4
+background								= ${colors.background}00
+foreground								= ${colors.foreground}
+
+modules-left							= rofi i3 openws
+modules-center							= date
+modules-right							= 
+
+tray-position							= right
+tray-offset-x							= 0
+
+cursor-click							= pointer
+cursor-scroll							= ns-resize
+
+[module/rofi]
+type									= custom/text
+content									= +
+content-padding							= 1
+content-foreground						= ${colors.foreground}
+content-background						= ${colors.selected-alt}
+
+click-left								= rofi -show run
+click-right								= rofi -show drun
+
+[module/openws]
+type									= custom/menu
+
+label-open								= " < "
+label-open-background					= ${colors.selected-alt}
+label-close								= " > "
+label-close-background					= ${colors.selected}
+
+menu-0-0								= " 1 "
+menu-0-1								= " 2 "
+menu-0-2								= " 3 "
+menu-0-3								= " 4 "
+menu-0-4								= " 5 "
+menu-0-5								= " 6 "
+menu-0-6								= " 7 "
+menu-0-7								= " 8 "
+menu-0-8								= " 9 "
+menu-0-9								= " 0 "
+menu-0-0-exec							= i3-msg workspace 1
+menu-0-1-exec							= i3-msg workspace 2
+menu-0-2-exec							= i3-msg workspace 3
+menu-0-3-exec							= i3-msg workspace 4
+menu-0-4-exec							= i3-msg workspace 5
+menu-0-5-exec							= i3-msg workspace 6
+menu-0-6-exec							= i3-msg workspace 7
+menu-0-7-exec							= i3-msg workspace 8
+menu-0-8-exec							= i3-msg workspace 9
+menu-0-9-exec							= i3-msg workspace 10
+
+format									= <label-toggle>%{B#262631}<menu>
+format-foreground						= ${colors.foreground-alt}
+
 [module/i3]
 type									= internal/i3
-format									= <label-state> <label-mode>
 index-sort								= true
 
-ws-icon-0								= 1	;Ⱥ
-ws-icon-1								= 2	;Ƀ
-ws-icon-2								= 3	;Ȼ
-ws-icon-3								= 4	;X
-ws-icon-4								= 5	;Y
-ws-icon-5								= 6	;Z
-ws-icon-6								= 7	;W
-ws-icon-7								= 8	;∆
-ws-icon-8								= 9	;∏
-ws-icon-9								= 10;∑
+ws-icon-0								=  1;1
+ws-icon-1								=  2;2
+ws-icon-2								=  3;3
+ws-icon-3								=  4;4
+ws-icon-4								=  5;5
+ws-icon-5								=  6;6
+ws-icon-6								=  7;7
+ws-icon-7								=  8;8
+ws-icon-8								=  9;9
+ws-icon-9								= 10;0
 
-; highlight active workspaces
-label-focused-foreground				= ${colors.foreground}
-label-unfocused-foreground				= ${colors.foreground-alt}
+format									= <label-state><label-mode>
 
-label-mode-padding						= 2
-label-mode-foreground					= #000
-label-mode-background					= ${colors.primary}
+label-mode								= %mode%
+label-mode-padding						= 1
+label-mode-background					= ${colors.alert}
 
-; focused = Active workspace on focused monitor
 label-focused							= %icon%
-label-focused-background				= ${colors.background-alt}
-; label-focused-underline				= ${colors.primary}
-label-focused-underline					=
-label-focused-padding					= 2
+label-focused-padding					= 1
+label-focused-foreground				= ${colors.foreground}
+label-focused-background				= ${colors.selected}
 
-; unfocused = Inactive workspace on any monitor
 label-unfocused							= %icon%
-label-unfocused-padding					= 2
+label-unfocused-padding					= 1
+label-unfocused-foreground				= ${colors.foreground-alt}
+label-unfocused-background				= ${colors.selected-alt}
 
-; visible = Active workspace on unfocused monitor
-label-visible							= %icon%
-label-visible-background				= ${colors.background}
-label-visible-underline					=
-label-visible-padding					= 2
-
-; urgent = Workspace with urgency hint set
-label-urgent							= %icon%
 label-urgent-background					= ${colors.alert}
-label-urgent-padding					= 2
+
+[module/time]
+type									= internal/date
+interval								= 5
+label									= "%time%"
+time									= "%H:%M"
+format-prefix							= "time "
+format-prefix-foreground				= ${colors.foreground-alt}
 
 [module/date]
 type									= internal/date
 interval								= 5
-label									= "  %date% %time%  "
-
+label									= "%date%"
 date									= "%m/%d"
-date-alt								= "%Y/%m/%d"
+format-prefix							= "date "
+format-prefix-foreground				= ${colors.foreground-alt}
 
-time									= "%H:%M"
-time-alt								= "%H:%M:%S"
-
-format-background						= ${colors.background-alt}
-
-[module/filesystem]
+[module/fs]
 type									= internal/fs
 interval								= 25
 
@@ -120,10 +177,10 @@ label-unmounted-foreground				= ${colors.foreground-alt}
 
 mount-0									= /
 
-[module/memory]
+[module/mem]
 type									= internal/memory
 interval								= 2
-format-prefix							= "mem "
+format-prefix							= "memory "
 format-prefix-foreground				= ${colors.foreground-alt}
 label									= %percentage_used%%
 
@@ -132,13 +189,13 @@ type									= internal/cpu
 interval								= 2
 format-prefix							= "cpu "
 format-prefix-foreground				= ${colors.foreground-alt}
-label									= %percentage:2%%
+label									= %percentage:%%
 
-[module/pulseaudio]
+[module/vol]
 type									= internal/pulseaudio
 format-volume							= <label-volume>
 
-format-volume-prefix					= "vol "
+format-volume-prefix					= "volume "
 format-volume-prefix-foreground			= ${colors.foreground-alt}
 
 label-volume							= %percentage%%
@@ -147,7 +204,7 @@ label-volume-foreground					= ${root.foreground}
 label-muted								= muted
 label-muted-foreground					= ${colors.foreground-alt}
 
-[module/temperature]
+[module/temp]
 type									= internal/temperature
 thermal-zone							= 0
 warn-temperature						= 60
@@ -155,43 +212,27 @@ warn-temperature						= 60
 format									= <label>
 format-underline						=
 format-warn								= <label-warn>
-format-warn-underline					= ${colors.accent}
+format-warn-background					= ${colors.alert}
 
 label									= %temperature-c%
 label-warn								= %temperature-c%
-label-warn-foreground					= ${colors.secondary}
+label-warn-padding						= 1
+label-warn-foreground					= ${colors.foreground}
 
-[module/battery]
+[module/bat]
 type									= internal/battery
 battery									= BAT0
 adapter									= AC
 full-at									= 90
 
-format-full-prefix						= "bat "
+format-full-prefix						= "battery "
 format-full-prefix-foreground			= ${colors.foreground-alt}
 format-full								= <label-full>
 
-format-charging-prefix					= "bat +"
+format-charging-prefix					= "+battery "
 format-charging-prefix-foreground		= ${colors.foreground-alt}
 format-charging							= <label-charging>
 
-format-discharging-prefix				= "bat -"
+format-discharging-prefix				= "-battery "
 format-discharging-prefix-foreground	= ${colors.foreground-alt}
 format-discharging						= <label-discharging>
-
-[module/powermenu]
-type									= custom/menu
-expand-right							= true
-format-spacing							= 1
-
-label-open								= Ø
-label-open-foreground					= ${colors.foreground-alt}
-label-close								= cancel
-label-close-foreground					= ${colors.foreground}
-label-separator							= //
-label-separator-foreground				= ${colors.foreground-alt}
-
-menu-0-0								= reboot
-menu-0-0-exec							= reboot
-menu-0-1								= power off
-menu-0-1-exec							= poweroff

@@ -5,20 +5,20 @@
 //
 
 * {
+	font:             "Ubuntu Mono 11";
 	background-color: #161621;
 	color:            #dddddd;
 }
 
 #window {
-	border-radius: 5px;
-	children:      [ inputbar, message, listview ];
+	border:       0 1px 1px 1px;
+	border-color: #212126;
+	children:     [ prompt, inputbar, message, listview ];
 }
 
-/* display */
-
-#textbox {
-	padding: 24px;
-	font: "Ubuntu Regular 11";
+#prompt {
+	padding:          4px 100% 4px 6px;
+	background-color: #212126;
 }
 
 /* run */
@@ -28,19 +28,20 @@
 }
 
 #entry {
-	padding: 4px 47px;
+	padding: 34px 47px 4px 47px;
 }
 
 #listview {
+	padding:      0 0 35px 0;
     fixed-height: true;
     scrollbar:    false;
-	lines:        12;
+	lines:        8;
 }
 
 #element {
-    padding: 4px 0px 6px 32px;
+    padding: 4px 30px;
 }
 
 #element.selected.normal {
-    background-color: #212126;
+	background-color: #212126;
 }

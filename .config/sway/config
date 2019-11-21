@@ -1,9 +1,12 @@
 #
-# zvava's i3 config
+# zvava's sway config
 #
 # @zvava@toot.cafe
 # https://github.com/mininmobile/config
 #
+
+# wayland
+output * bg ~/wall.png tile
 
 # misc
 set $mod Mod4
@@ -27,65 +30,74 @@ set $inactive-text   #aaaaaa
 set $urgent-text     #ffffff
 
 # worspace variables
-set $workspace1  "1"
-set $workspace2  "2"
-set $workspace3  "3"
-set $workspace4  "4"
-set $workspace5  "5"
-set $workspace6  "6"
-set $workspace7  "7"
-set $workspace8  "8"
-set $workspace9  "9"
-set $workspace10 "10"
+set $ws1  "1"
+set $ws2  "2"
+set $ws3  "3"
+set $ws4  "4"
+set $ws5  "5"
+set $ws6  "6"
+set $ws7  "7"
+set $ws8  "8"
+set $ws9  "9"
+set $ws10 "10"
 
 # window workspaces
-assign [class="firefox"] $workspace8
-assign [class="discord"] $workspace9
+assign [app_id="firefox"] $ws8
+assign [class="discord"] $ws9
 
 # window styles
 # text
 font pango:Ubuntu Mono 14
-for_window [class=".*"] title_format "<span font='Ubuntu Mono 11'> <b>›</b> %title</span>"
-for_window [class="kitty"] title_format "<span font='Ubuntu Mono 11'> <b>›</b> kitty</span>"
+for_window [title=".*"]    title_format\
+	"<span font='Ubuntu Mono 11'><b>›</b> %title</span>"
 # borders
 hide_edge_borders none
-for_window [class=".*"] border normal 1
+for_window [title=".*"] border normal 1
 # floating
-for_window [class=".*"]                           floating enable
-for_window [class="firefox" instance="Navigator"] floating disable
-for_window [class="steam"]                        floating disable
-for_window [class="code-oss"]                     floating disable
+for_window [title=".*"]                                    floating enable
+for_window [title=".+- Mozilla Firefox|^Mozilla Firefox$"] floating disable
+for_window [class="code-oss"]                              floating disable
 
 # startup apps
 exec firefox
 # background apps
 exec --no-startup-id "nm-applet"
 exec --no-startup-id "blueman-applet"
-exec --no-startup-id "polybar top"
-exec --no-startup-id "polybar bot"
 exec --no-startup-id "~/.scripts/battery-monitor"
-exec_always          "feh ~/wall.png --bg-tile"
-#exec_always          "~/.scripts/wallpaper"
-exec --no-startup-id "compton"
+
+# wayland gtk workaround
+set $gnome-schema org.gnome.desktop.interface
+exec_always {
+	gsettings set $gnome-schema gtk-theme           "Adapta-Nokto-Eta"
+	gsettings set $gnome-schema icon-theme          "Adwaita"
+	gsettings set $gnome-schema cursor-theme        "Adwaita"
+	gsettings set $gnome-schema font-name           "Ubuntu 11"
+	gsettings set $gnome-schema monospace-font-name "Ubuntu Mono 11"
+}
+
+# bar
+bar {
+    swaybar_command waybar
+}
 
 # open launcher (rofi in run mode)
 bindsym $mod+d exec rofi -show run
 # tab menu (rofi in window mode)
 bindsym $mod+Tab exec rofi -show window
 bindsym $alt+Tab exec rofi -show window
-# restart i3 inplace (preserves your layout/session)
-bindsym $mod+Shift+r restart
-# exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
-# launch i3 lock (starts i3lock lock screen)
-bindsym $mod+Shift+x exec "i3lock -u -c '$bg' -p default"
-# launch screenshot (scrot)
-bindsym Print exec "flameshot gui"
+# reload config (preserves your layout/session)
+bindsym $mod+Shift+r reload
+# exit sway (logs you out)
+bindsym $mod+Shift+e exec "swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway?' -b 'Yes, exit sway' 'swaymsg exit'"
+# launch sway lock (starts swaylock lock screen)
+bindsym $mod+Shift+x exec "swaylock -u -c '$bg' -p default"
+# launch screenshot (grim)
+bindsym Print exec "bash -ic 'grim'"
 # refresh wallpaper
 bindsym $mod+Shift+w exec "/home/zvava/.scripts/wallpaper"
 
 # start a terminal
-bindsym $mod+Return exec kitty
+bindsym $mod+Return exec alacritty
 # kill focused window
 bindsym $mod+Shift+q kill
 
@@ -123,40 +135,40 @@ bindsym $mod+a focus parent
 bindsym $mod+Shift+a focus child
 
 ## assign workspaces to monitors
-#workspace $workspace1 output primary
-#workspace $workspace2 output primary
-#workspace $workspace3 output primary
-#workspace $workspace4 output primary
-#workspace $workspace5 output primary
-#workspace $workspace6 output primary
-#workspace $workspace7 output primary
-#workspace $workspace8 output HDMI0
-#workspace $workspace9 output DVI1
-#workspace $workspace10 output DVI1
+#workspace $ws1 output primary
+#workspace $ws2 output primary
+#workspace $ws3 output primary
+#workspace $ws4 output primary
+#workspace $ws5 output primary
+#workspace $ws6 output primary
+#workspace $ws7 output primary
+#workspace $ws8 output HDMI0
+#workspace $ws9 output DVI1
+#workspace $ws10 output DVI1
 # switch to workspce
-bindsym $mod+1 workspace $workspace1
-bindsym $mod+2 workspace $workspace2
-bindsym $mod+3 workspace $workspace3
-bindsym $mod+4 workspace $workspace4
-bindsym $mod+5 workspace $workspace5
-bindsym $mod+6 workspace $workspace6
-bindsym $mod+7 workspace $workspace7
-bindsym $mod+8 workspace $workspace8
-bindsym $mod+9 workspace $workspace9
-bindsym $mod+0 workspace $workspace10
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws10
 # move window to workspace
-bindsym $mod+Shift+1 move container to workspace $workspace1
-bindsym $mod+Shift+2 move container to workspace $workspace2
-bindsym $mod+Shift+3 move container to workspace $workspace3
-bindsym $mod+Shift+4 move container to workspace $workspace4
-bindsym $mod+Shift+5 move container to workspace $workspace5
-bindsym $mod+Shift+6 move container to workspace $workspace6
-bindsym $mod+Shift+7 move container to workspace $workspace7
-bindsym $mod+Shift+8 move container to workspace $workspace8
-bindsym $mod+Shift+9 move container to workspace $workspace9
-bindsym $mod+Shift+0 move container to workspace $workspace10
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9
+bindsym $mod+Shift+0 move container to workspace $ws10
 
-# resize move
+# resize mode
 bindsym $mod+r mode "resize"
 
 mode "resize" {
@@ -178,20 +190,6 @@ mode "resize" {
 	bindsym Ctrl+Up    resize shrink height 100 px or 100 ppt
 	bindsym Ctrl+Down  resize grow   height 100 px or 100 ppt
 }
-
-## i3 bar
-#bar {
-#	status_command i3blocks -c ~/.config/i3/i3blocks.conf
-#	position top
-#	colors {
-#		background $bg
-#		separator #757575
-#		#                  border       background   text
-#		focused_workspace  $bg          $bg          $text
-#		inactive_workspace $inactive-bg $inactive-bg $inactive-text
-#		urgent_workspace   $urgent-bg   $urgent-bg   $urgent-text
-#	}
-#}
 
 #                       border       background   text           indicator    child border
 client.focused          $bg          $bg          $text          $bg          $border
@@ -222,4 +220,3 @@ bindsym $mod+F8 exec mocp --next
 # gaps
 gaps outer 4
 gaps inner 8
-border_radius 0

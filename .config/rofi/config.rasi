@@ -5,34 +5,22 @@
 //
 
 configuration {
-	modi: "drun,run,ssh,window";
-	width: 30;
-	font: "Ubuntu Mono 11";
-	location: 0;
-	padding: 32;
-	fixed-num-lines: true;
-	show-icons: true;
-	terminal: "kitty";
-	icon-theme: "Adwaita";
+	modi:              "drun,run,ssh,window";
+	width:             24;
+	location:          0;
+	show-icons:        true;
+	terminal:          "kitty";
+	icon-theme:        "Adwaita";
 	drun-match-fields: "name,generic,exec,categories";
 	drun-show-actions: false;
-	drun-display-format: "{name} [<span weight='light'	size='small'><i>({generic})</i></span>]"; /*{unfuck nano's syntax
-	highlighting*/
-	ignored-prefixes: "";
-	m: "-5";
-	disable-history: false;
-	max-history-size: 1;
-	line-margin: 0;
-	line-padding: 4;
-	separator-style: "solid";
-	hide-scrollbar: true;
-	scrollbar-width: 4;
-	fullscreen: false;
-	dpi: -1;
-	click-to-exit: true;
-	theme: ".config/rofi/themes/Customa";
-	color-normal: "#161621, #dddddd, #212126";
-	color-urgent: "#fa0046";
-	color-active: "#00ff00";
-	color-window: "#161621";
+	drun-display-format: "{name} [<span weight='light' size='small'><i>({generic})</i></span>]"; /*{unfuck nano's syntax highlighting*/
+	ignored-prefixes:   "";
+	m:                  "-5";
+	disable-history:    false;
+	max-history-size:   1;
+	hide-scrollbar:     true;
+	fullscreen:         false;
+	dpi:                -1;
+	click-to-exit:      true;
+	theme:              ".config/rofi/themes/Customa";
 }

@@ -9,6 +9,7 @@ include /usr/share/nano/*.nanorc
 include ~/.nano/*.nanorc
 
 # keymap
+# taken and uncommented from lines 279-305 of /etc/nanorc
 bind   ^Q  exit          all
 bind   M-Q cancel        all
 bind   ^H  help          all
@@ -71,7 +72,7 @@ unset rebinddelete
 set   regexp
 set   selectedcolor          normal,magenta
 set   smarthome
-set   softwrap
+unset softwrap
 set   stripecolor            normal,magenta
 unset suspend
 set   tabsize                4
