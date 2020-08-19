@@ -4,18 +4,19 @@
 # @zvava@toot.cafe
 #
 
-# if not running interactively, don't do anything
-[[ $- != *i* ]] && return
-
-# prompt
-PS1='\w \$ '
+# source global definitions
+if [ -f /etc/bashrc ]; then
+	. /etc/bashrc
+fi
 
 # aliases
 if [ -e ~/.bashrc.aliases ] ; then
 	source ~/.bashrc.aliases
 fi
 
-# default applications
-BROWSER=/usr/bin/firefox
-EDITOR=/usr/bin/code-oss
-TERMINAL=/usr/bin/kitty
+
+# if not running interactively, stop
+[[ $- != *i* ]] && return
+
+# prompt
+PS1='\w \$ '
