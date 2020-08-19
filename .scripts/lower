@@ -1,6 +1,0 @@
-#!/usr/bin/env bash
-# tolowercase
-
-[ $# -eq 0 ] && set -- "$(cat)"
-
-echo "$@" | tr [A-Z] [a-z]
