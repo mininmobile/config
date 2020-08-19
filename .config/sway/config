@@ -56,11 +56,12 @@ for_window [title=".*"] border normal 1
 # floating
 for_window [title=".*"]                                    floating enable
 for_window [title=".+- Mozilla Firefox|^Mozilla Firefox$"] floating disable
-for_window [class="code-oss"]                              floating disable
+for_window [class="VSCodium"]                              floating disable
 
 # startup apps
 exec firefox
 # background apps
+exec --no-startup-id "dunst"
 exec --no-startup-id "nm-applet"
 exec --no-startup-id "blueman-applet"
 exec --no-startup-id "~/.scripts/battery-monitor"
@@ -77,7 +78,7 @@ exec_always {
 
 # bar
 bar {
-    swaybar_command waybar
+	swaybar_command waybar
 }
 
 # open launcher (rofi in run mode)
@@ -97,9 +98,12 @@ bindsym Print exec "bash -ic 'grim'"
 bindsym $mod+Shift+w exec "/home/zvava/.scripts/wallpaper"
 
 # start a terminal
-bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec kitty
 # kill focused window
 bindsym $mod+Shift+q kill
+
+# configure input devices
+input pointer pointer_accel 0
 
 # change focus
 bindsym $mod+Left focus left
@@ -197,6 +201,10 @@ client.unfocused        $inactive-bg $inactive-bg $inactive-text $inactive-bg $i
 client.focused_inactive $inactive-bg $inactive-bg $inactive-text $inactive-bg $inactive-border
 client.urgent           $urgent-bg   $urgent-bg   $urgent-text   $urgent-bg   $urgent-border
 
+# brightness key brightness controls
+bindsym XF86MonBrightnessUp        exec brightnessctl s 10%+
+bindsym XF86MonBrightnessDown      exec brightnessctl s 10%-
+
 # media key volume controls
 bindsym XF86AudioRaiseVolume      exec amixer -D pulse sset Master 5%+
 bindsym XF86AudioLowerVolume      exec amixer -D pulse sset Master 5%-
@@ -210,12 +218,6 @@ bindsym XF86AudioPause exec mocp --toggle-pause
 bindsym XF86AudioStop  exec mocp --togle-pause
 bindsym XF86AudioNext  exec mocp --next
 bindsym XF86AudioPrev  exec mocp --previous
-
-# function key media controls
-bindsym $mod+F5 exec mocp --toggle-pause
-bindsym $mod+F6 exec mocp --stop
-bindsym $mod+F7 exec mocp --previous
-bindsym $mod+F8 exec mocp --next
 
 # gaps
 gaps outer 4
