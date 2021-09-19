@@ -1,8 +1,7 @@
 {
 	"breadcrumbs.enabled": false,
-	"dimmer.enabled": true,
 	"dimmer.opacity": 60,
-	"editor.renderWhitespace": "boundary",
+	"editor.renderWhitespace": "all",
 	"editor.fontLigatures": true,
 	"editor.minimap.enabled": false,
 	"editor.rulers": [80],
@@ -10,14 +9,12 @@
 	"editor.codeLens": false,
 	"editor.cursorStyle": "block",
 	"editor.wordWrap": "on",
+	"editor.wrappingIndent": "same",
 	"explorer.openEditors.visible": 0,
 	"explorer.confirmDragAndDrop": false,
-	"extensions.showRecommendationsOnlyOnDemand": true,
 	"extensions.ignoreRecommendations": true,
 	"files.eol": "\n",
 	"files.autoSave": "afterDelay",
-	"files.insertFinalNewline": true,
-	"files.trimFinalNewlines": true,
 	"files.trimTrailingWhitespace": true,
 	"git.enableSmartCommit": true,
 	"git.confirmSync": false,
@@ -27,46 +24,92 @@
 	"window.title": "${dirty}${activeEditorMedium}",
 	"workbench.panel.defaultLocation": "right",
 	"workbench.activityBar.visible": false,
-	"workbench.colorTheme": "Noctis Uva",
-	"workbench.iconTheme": "vs-seti",
+	"workbench.colorTheme": "Horizon Italic",
+	"workbench.iconTheme": "eq-material-theme-icons-palenight",
 	"workbench.startupEditor": "none",
 
 	"files.associations": {
 		"*.bf": "csharp" // beef
 	},
 
-	"workbench.colorCustomizations": {
-		"tab.border": "#00000000",
-		"tab.activeBorderTop": "#00000000",
-
-		"terminal.border": "#ffffff0d",
-
-		"sideBar.border": "#292640",
-
-		"panel.border": "#00000000",
-		"contrastBorder": "#00000000",
-		"focusBorder": "#00000000",
-		"panelTitle.activeBorder": "#00000000",
-		"sideBarSectionHeader.border": "#00000000",
-		"statusBar.border": "#00000000",
-	},
+	"cSpell.userWords": [
+		"codepen",
+		"concatenator",
+		"concatenators",
+		"customizability",
+		"dashcam",
+		"datasheet",
+		"datasheets",
+		"despacito",
+		"ervin",
+		"figma",
+		"fucky",
+		"idfk",
+		"inciteful",
+		"itoa",
+		"krusniczky",
+		"leds",
+		"linkedin",
+		"merch",
+		"microcontroller",
+		"mobo",
+		"monospace",
+		"offaly",
+		"preconnect",
+		"prepend",
+		"raspbian",
+		"scrollbars",
+		"scroller",
+		"soundcloud",
+		"templating",
+		"tiktok",
+		"truetype",
+		"tullamore",
+		"youtube",
+		"zvava"
+	],
+	"editor.renderControlCharacters": false,
+	"workbench.editor.showTabs": true,
+	"cSpell.language": "en",
+	"cSpell.enableFiletypes": [
+		"haxe"
+	],
+	"explorer.confirmDelete": false,
+	"python.showStartPage": false,
+	"terminal.integrated.gpuAcceleration": "off",
+	"files.insertFinalNewline": true,
+	"files.trimFinalNewlines": true,
+	"window.zoomLevel": 1,
+	"security.workspace.trust.banner": "never",
+	"security.workspace.trust.enabled": false,
+	"security.workspace.trust.untrustedFiles": "open",
+	"security.workspace.trust.startupPrompt": "never",
 }
 
 /*
 	extensions:
-		build and run       | olback
-		code spell checker  | street side software
-		dotenv              | mikestead
-		filesize            | matheus kautzmann
-		hexdump for vscode  | slevesque
-		noctis              | liviu schera
-		npm                 | egamma
-		npm intellisense    | christian kohler
-		vscode dimmer block | imagio
+		better align         | wwm
+		better toml          | bungcip
+		build and run        | olback
+		codedox              | wiggin77
+		code spell checker   | street side software
+		dotenv               | mikestead
+		filesize             | matheus kautzmann
+		git history          | donjayamanne
+		haxe + hashlink db.  | haxe foundation
+		hex editor           | ms-vscode
+		horizon theme        | jolaeye
+		material theme icons | equinusocio
+		npm                  | egamma
+		npm intellisense     | christian kohler
+		overtype             | adam maras
+		rainbow csv          | mechatroner
+		svg                  | jock
+		vscode dimmer block  | imagio
 
 	VSCodium > resources > app > product.json
 		"extensionsGallery": {
 			"serviceUrl": "https://marketplace.visualstudio.com/_apis/public/gallery",
 			"itemUrl": "https://marketplace.visualstudio.com/items"
-		}
+		},
 */
