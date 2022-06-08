@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# remove leading/trailing whitespace
+
+[ $# -eq 0 ] && set -- "$(cat)"
+
+echo "$@" | sed -E 's/^\s+|\s+$//g'

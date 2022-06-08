@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# qr code images from the terminal
+
+[ $# -eq 0 ] && read inp && set $inp
+
+echo $* | curl -F-=\<- qrenco.de

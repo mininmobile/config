@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# get monitor width and height
+
+res=$(xrandr --nograb --current | awk '/\*/ {print $1}' | tail -n 1)
+res=${res% *}
+sw=${res%x*}
+sh=${res#*x}
+echo -n ${sw%.*} ${sh%.*}

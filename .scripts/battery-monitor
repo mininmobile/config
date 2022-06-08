@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+# battery monitor
+
+perc="$(battery)"
+
+psu() { [ "$perc" = NONE ] || return 1; }
+
+psu && exit 1
+
+while sleep 60 ; do
+	psu && continue
+
+	case $(battery) in
+		10%) notify-send -u critical 'Battery low!' ;;
+		5%) notify-send 'Battery critical!' ;;
+	esac
+done

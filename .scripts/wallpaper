@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# gets a random wallpaper from directory
+
+dir=~/Pictures/Wallpapers
+
+# get items in wallpapers directory
+total=$(ls $dir | wc --lines)
+# get a random number in range from 1-total
+index=`shuf --input-range=1-$total | head --lines 1`
+# get nth wallpaper and set it as wallpaper
+feh --bg-fill "$dir/"$(ls $dir | sed "$index!d")

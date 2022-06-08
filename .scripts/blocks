@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+_() { echo -e "\e[$1"{0..7}"m  \e[m"; }
+
+echo
+_ 10
+_ 4
+echo

@@ -1,0 +1,191 @@
+#!/bin/sh
+# git wrapper (from mitchweaver/bin)
+
+# Usage: gud [OPTION] [...]
+# Git wrapper for Gitting Gudder.
+#
+# Arguments (defaults to -s):
+#     -a              git add
+#     -m              [git add] git commit -m
+#     -o              git push -u
+#     -of             git push -u --force
+#     -u              add, commit -m, and push in one command
+#     -c              git clone
+#     -gh             git clone (from github)
+#     -p              git pull
+#     -pf             git pull --force
+#     -d              git diff
+#     -s              git status
+#     -k              git checkout
+#     -kd             git push --delete origin
+#     -b              git branch
+#     -r              git remote add
+#     -rv             git remote -v
+#     -i              git init
+#     -l              git log --source
+#     -f              git fetch
+#     -gc             git gc
+#     -mv             git mv
+#     -rm             git rm
+#     --base      -bs git rebase -i --hard
+#     --bort      -bt git rebase --abort
+#     --reset     -rs git reset --hard
+#     --cherry    -ch git cherry-pick
+#     --stash     -st git stash
+#     --blame     -bl git blame
+#     --untracked -un git ls-files --others --exclude-standard
+#     --tmp           sets up a temporary git repo that you can push/pull from
+#                     your  directory.  great for backup when working on quick
+#                     new ideas / scratchpads.
+#     --help -h       displays this help and exits
+
+msg() { printf "%s\n" "$@" ; }
+die() { >&2 msg "$@" ; exit 1 ; }
+
+main() {
+    [ "$1" ] || gstat
+    case "$1" in
+        -a)  shift ; gadd "$@" ;;
+        -m)  shift ; gmit "$@" ;;
+        -o)  shift ; gout "$@" ;;
+        -of) shift ; gout --force "$@" ;;
+        -u)  shift ; gup "$@" ;;
+        -c)  shift ; gclone "$@" ;;
+        -gh) shift ; ghclone "$1" ;;
+        -p)  shift ; gpull "$@" ;;
+        -pf) shift ; gpull --force "$@" ;;
+        -d)  shift ; gdiff "$@" ;;
+        -s)  shift ; gstat "$@" ;;
+        -k)  shift ; git checkout "$@" ;;
+        -kd) shift ; branchdel "$@" ;;
+        -b)  shift ; git branch "$@" ;;
+        -r)  shift ; git remote add "$@" ;;
+        -rv) shift ; git remote -v ;;
+        -i)  shift ; git init "$@" ;;
+        -l)  shift ; git log --source "$@" ;;
+        -f)  shift ; git fetch "$@" ;;
+        -gc) shift ; git gc "$@" ;;
+        -mv) shift ; git mv "$@" ;;
+        -rm) shift ; git rm "$@" ;;
+        --base|-bs) shift ; gbase "$@" ;;
+        --bort|-bt) shift ; git rebase --abort "$@" ;;
+        --reset|-rs) shift ; greset "$@" ;;
+        --cherry|-ch) shift ; git cherry-pick "$@" ;;
+        --stash|-st) shift ; git stash "$@" ;;
+        --blame|-bl) shift ; git blame "$@" ;;
+        --untracked|-un) guntracked ;;
+        --tmp) gtmp ;;
+        --help|-h) head -n 40 "$0" | tail -n 37 | sed 's/# //g' ;;
+    esac
+}
+
+# If no args, stage all files, (prompting for confirmation).
+# Otherwise stage all arguments.
+gadd() {
+    if [ -z "$1" ] ; then
+        printf "%s\n%s" \
+            'No arguments were given.' \
+            'Shall I stage all files? (y/n) '
+        read -r ans
+        [ "$ans" = y ] || die "Aborting."
+        git add -A
+    else
+        git add "$@"
+    fi
+}
+
+# If one argument, commit with message
+# Otherwise, stage all arguments but last
+# as files and then use last arg as commit message
+# Ex: gud -m 'this is the commit message'
+# Ex: gud -m file1 file2 file3 'added 3 files'
+gmit() {
+    [ "$1" ] || die 'No arguments.'
+    while [ $# -ne 1 ] ; do
+        git add "$1"
+        shift
+    done
+    git commit -m "$@"
+}
+
+# If no arguments, push out to current branch.
+# Otherwise, push to given branch.
+gout() {
+    [ "$1" ] || set -- origin "$(git rev-parse --symbolic-full-name --abbrev-ref HEAD)"
+    [ "$2" ] || set -- origin "$1"
+    git push -u "$@"
+}
+
+# Stage all, commit all, push all to current branch.
+# Argument is the commit message.
+gup() {
+    [ "$1" ] || die "No arguments."
+    printf "%s\n%s" \
+        "About to stage, commit, and push all changes." \
+        "Are you sure? (y/n) "
+    read -r ans
+    [ "$ans" = y ] || die "Aborting."
+    git add -A &&
+    gmit "$@" &&
+    gout
+}
+
+gclone() { git clone "$@" ; }
+ghclone() { gclone http://github.com/"$1" ; }
+
+# If no arguments, git pull.
+# Otherwise pull from given branch.
+gpull() {
+    [ "$1" ] || set -- origin master
+    [ "$2" ] || set -- origin "$1"
+    git pull "$@"
+}
+
+# If no arguments, diff repo against remote master.
+# Otherwise, diff repo against given remote branch.
+gdiff() {
+    [ "$1" ] || set -- origin master
+    [ "$2" ] || set -- origin "$1"
+    git diff "$1"/"$2"
+}
+
+gstat() { git status -bs --show-stash "$@" ; }
+
+# Interactively rebase current branch $1 number of commits.
+gbase() {
+    [ "$1" ] || die 'No arguments.'
+    count="$1"
+    shift
+    git rebase -i HEAD~"$count" "$@"
+}
+
+# Perform a hard reset of current branch $1 number of commits.
+greset() {
+    [ "$1" ] || die 'No arguments.'
+    count="$1"
+    shift
+    git reset --hard HEAD~"$count" "$@"
+}
+
+# Print untracked files on current branch.
+guntracked() { git ls-files --others --exclude-standard ; }
+
+branchdel() {
+    printf "%s" "About to delete branch $1, are you sure? (y/n) "
+    read -r ans
+    [ "$ans" = y ] || return 1
+    git push --delete origin "$1"
+}
+
+# Sets up a temporary git repo that you can push/pull from your directory.
+# Great for backup when working on quick new ideas / scratchpads.
+gtmp() {
+    mkdir -p /tmp/gud
+    dir="$(mktemp -d -p /tmp/gud --suffix=.gud)"
+    echo "$dir"
+    git init --bare "$dir" &&
+    git init . &&
+    git remote add origin "$dir"
+}
+
+main "$@"
