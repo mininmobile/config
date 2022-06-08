@@ -1,14 +1,15 @@
 #
 # zvava's .bashrc aliases
-#
-# @zvava@toot.cafe
+# @zvava@merveilles.town
 #
 
+# display utils
 alias slurp=$'slurp -b 00000066 -c 212126 -s 00000000 -w 1'
 alias scrot=$'scrot -mzofq 100 \'%Y-%m-%d_%H%M%S@$a.png\' -e \'mv $f ~/Pictures/Screenshots/\''
 alias scrap=$'scrot -a $(slop -f %x,%y,%w,%h)'
 alias grim=$'grim -g "$(slurp)" ~/Pictures/Screenshots/$(date +\'%Y-%m-%d_%H%M%S.png\')'
 
+# qol
 alias ls='ls --color=auto'
 alias cp='cp -i'
 alias df='df -h'
@@ -19,11 +20,8 @@ alias journalctl='sudo journalctl'
 alias systemctl='sudo systemctl'
 alias se='ls /usr/bin | grep'
 
+# shortcuts
 alias la='ls -a'
 alias dir='ls -lh'
 alias cd..='cd ..'
 alias l='sl'
-
-if [[ $LANG = '' ]]; then
-	export LANG=en_US.UTF-8
-fi

@@ -1,7 +1,6 @@
 #
 # zvava's .bashrc
-#
-# @zvava@toot.cafe
+# @zvava@merveilles.town
 #
 
 # source global definitions
@@ -18,5 +17,13 @@ fi
 # if not running interactively, stop
 [[ $- != *i* ]] && return
 
+
+# lang
+if [[ $LANG = '' ]]; then
+	export LANG=en_US.UTF-8
+fi
+
 # prompt
 PS1='\w \$ '
+
+unset rc

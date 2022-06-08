@@ -1,10 +1,11 @@
 {
+	"update.mode": "none",
 	"breadcrumbs.enabled": false,
 	"dimmer.opacity": 60,
 	"editor.renderWhitespace": "all",
 	"editor.fontLigatures": true,
 	"editor.minimap.enabled": false,
-	"editor.rulers": [80],
+	"editor.rulers": [80, 120],
 	"editor.insertSpaces": false,
 	"editor.codeLens": false,
 	"editor.cursorStyle": "block",
@@ -24,62 +25,18 @@
 	"window.title": "${dirty}${activeEditorMedium}",
 	"workbench.panel.defaultLocation": "right",
 	"workbench.activityBar.visible": false,
-	"workbench.colorTheme": "Horizon Italic",
+	"workbench.colorTheme": "Monokai",
 	"workbench.iconTheme": "eq-material-theme-icons-palenight",
 	"workbench.startupEditor": "none",
-
-	"files.associations": {
-		"*.bf": "csharp" // beef
-	},
-
-	"cSpell.userWords": [
-		"codepen",
-		"concatenator",
-		"concatenators",
-		"customizability",
-		"dashcam",
-		"datasheet",
-		"datasheets",
-		"despacito",
-		"ervin",
-		"figma",
-		"fucky",
-		"idfk",
-		"inciteful",
-		"itoa",
-		"krusniczky",
-		"leds",
-		"linkedin",
-		"merch",
-		"microcontroller",
-		"mobo",
-		"monospace",
-		"offaly",
-		"preconnect",
-		"prepend",
-		"raspbian",
-		"scrollbars",
-		"scroller",
-		"soundcloud",
-		"templating",
-		"tiktok",
-		"truetype",
-		"tullamore",
-		"youtube",
-		"zvava"
-	],
+	"editor.fontSize": 16,
 	"editor.renderControlCharacters": false,
 	"workbench.editor.showTabs": true,
 	"cSpell.language": "en",
-	"cSpell.enableFiletypes": [
-		"haxe"
-	],
 	"explorer.confirmDelete": false,
 	"python.showStartPage": false,
 	"terminal.integrated.gpuAcceleration": "off",
 	"files.insertFinalNewline": true,
 	"files.trimFinalNewlines": true,
-	"window.zoomLevel": 1,
 	"security.workspace.trust.banner": "never",
 	"security.workspace.trust.enabled": false,
 	"security.workspace.trust.untrustedFiles": "open",
@@ -91,21 +48,18 @@
 		better align         | wwm
 		better toml          | bungcip
 		build and run        | olback
-		codedox              | wiggin77
 		code spell checker   | street side software
 		dotenv               | mikestead
 		filesize             | matheus kautzmann
 		git history          | donjayamanne
-		haxe + hashlink db.  | haxe foundation
 		hex editor           | ms-vscode
-		horizon theme        | jolaeye
 		material theme icons | equinusocio
 		npm                  | egamma
 		npm intellisense     | christian kohler
 		overtype             | adam maras
 		rainbow csv          | mechatroner
+		uxntal               | karol belina
 		svg                  | jock
-		vscode dimmer block  | imagio
 
 	VSCodium > resources > app > product.json
 		"extensionsGallery": {
