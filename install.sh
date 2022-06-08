@@ -1,4 +1,11 @@
 #!/usr/bin/env bash
+#
+# zvava's dotfile install script
+# @zvava@merveilles.town
+#
+
+# TODO: detect termux, make all the scripts have proper bash paths
+
 [ $(whoami) = "root" ] || { echo "[aborting] not running as root" ; exit ; }
 
 printf "%s\n%s" \
@@ -10,7 +17,10 @@ printf "%s" \
 read -r ans
 [ "$ans" = y ] || { echo "[aborting]" ; exit ; }
 
-echo "TODO: copy files and make them owned by \$installuser"
-#cp -rv .config /home/$installuser/.config
-#cp -rv .scripts /home/$installuser/.scripts
-#cp -rv .nano /home/$installuser/.nano
+cp -rp .config /home/$installuser/
+cp -rp .scripts /home/$installuser/
+cp -rp .nano /home/$installuser/
+# TODO: do this and update the username
+cp environment /etc/environment
+# TODO: make this with correct perms
+# mkdir /home/$installuser/.nano.backups
