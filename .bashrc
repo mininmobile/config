@@ -4,24 +4,27 @@
 #
 
 # source global definitions
-if [ -f /etc/bashrc ]; then
+if [[ -f /etc/bashrc ]]; then
 	. /etc/bashrc
 fi
 
 # aliases
-if [ -e ~/.bashrc.aliases ] ; then
+if [[ -e ~/.bashrc.aliases ]] ; then
 	source ~/.bashrc.aliases
 fi
-
-
-# if not running interactively, stop
-[[ $- != *i* ]] && return
-
 
 # lang
 if [[ $LANG = '' ]]; then
 	export LANG=en_US.UTF-8
 fi
+
+# include user scripts
+if [[ $PATH != *".scripts"* ]];then
+	PATH="~/.scripts:$PATH"
+fi
+
+# if not running interactively, stop
+[[ $- != *i* ]] && return
 
 # prompt
 PS1='\w \$ '
