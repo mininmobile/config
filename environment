@@ -1,5 +1,0 @@
-# commands and scripts
-PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/home/zvava/.scripts
-# default applications
-BROWSER=/usr/bin/firefox
-EDITOR=/usr/bin/codium
