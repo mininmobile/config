@@ -9,18 +9,12 @@ cd "${0%/*}"
 
 [ "$(whoami)" = "root" ] || { echo "[install.sh] not running as root" ; exit ; }
 
-printf "%s" "[main] install dotfiles to main account? (y/n) "
-read -r confirmmain
+read -rp "install dotfiles to main account? (y/n) " confirmmain
 if [ "$confirmmain" = y ]; then
-	printf "%s" "[main] enter your username: /home/"
-	read -r installuser
+	read -n "[main] enter your username: /home/" installuser
 fi
-
-printf "%s" "[root] install dotfiles to /root/? (y/n) "
-read -r confirmroot
-
-printf "%s" "[global] install global dotfiles, eg. xorg, /etc/env, ...? (y/n) "
-read -r confirmglobal
+read -rp "install dotfiles to /root/? (y/n) " confirmroot
+read -rp "install global dotfiles, eg. xorg, /etc/env, ...? (y/n) " confirmglobal
 
 # dotfiles for your main account
 if [ "$confirmmain" = y ]; then
