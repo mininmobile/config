@@ -8,14 +8,19 @@
 cd "${0%/*}"
 
 if command -v termux-fix-shebang &> /dev/null; then
+	[ "$(whoami)" = "root" ] && { echo "[install.sh] running as root" ; exit ; }
+
 	echo "[install.sh] termux detected, i'll do my best =]"
 
-	cp -r .config .scripts .bash* "$HOME/"
-	chmod +x "$HOME/.scripts/*"
-	# fix script paths
-	termux-fix-shebang "$HOME/.scripts/*"
+	cp -r .config .scripts .bash* ~/
+	# nano configs
+	cp -r .nano .nanorc ~/
+	mkdir -p ~/.nano.backups
+	# make scripts work
+	termux-fix-shebang ~/.scripts/*
+	chmod +x ~/.scripts/*
 	# remove gui configs
-	cd "$HOME/.config"
+	cd ~/.config
 	rm -rf gtk-2.0 gtk-3.0 protonvpn redshift xfce4
 else
 	[ "$(whoami)" = "root" ] || { echo "[install.sh] not running as root" ; exit ; }
@@ -31,15 +36,15 @@ else
 	if [ "$confirmmain" = y ]; then
 		echo "[main] installing"
 
-		cp -rp .config .scripts .bash* "/home/$installuser/"
-		chmod +x "/home/$installuser/.scripts/*"
+		cp -rp .config .scripts .bash* /home/$installuser/
+		chmod +x /home/$installuser/.scripts/*
 		# screenshots dir
-		mkdir -p "/home/$installuser/Pictures/Screenshots"
-		chown $installuser.$installuser "/home/$installuser/Pictures/Screenshots"
+		mkdir -p /home/$installuser/Pictures/Screenshots
+		chown $installuser.$installuser /home/$installuser/Pictures/Screenshots
 		# nano configs
-		cp -rp .nano .nanorc "/home/$installuser/"
-		mkdir "/home/$installuser/.nano.backups"
-		chown $installuser.$installuser "/home/$installuser/.nano.backups"
+		cp -rp .nano .nanorc /home/$installuser/
+		mkdir -p /home/$installuser/.nano.backups
+		chown $installuser.$installuser /home/$installuser/.nano.backups
 	else
 		echo "[main] skipping"
 	fi
@@ -49,10 +54,9 @@ else
 		echo "[root] installing"
 
 		cp -r .config .bash* /root/
-		chmod +x /root/.scripts/*
 		# nano configs
 		cp -r .nano .nanorc /root/
-		mkdir /root/.nano.backups
+		mkdir -p /root/.nano.backups
 	else
 		echo "[root] skipping"
 	fi
