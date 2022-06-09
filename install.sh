@@ -4,16 +4,14 @@
 # @zvava@merveilles.town
 #
 
-# TODO: detect termux, make all the scripts have proper bash paths
-
-[ $(whoami) = "root" ] || { echo "[install.sh] not running as root" ; exit ; }
-
 # cd to location of script
 cd "${0%/*}"
 
+[ "$(whoami)" = "root" ] || { echo "[install.sh] not running as root" ; exit ; }
+
 printf "%s" "[main] install dotfiles to main account? (y/n) "
 read -r confirmmain
-if [ $confirmmain = y ]; then
+if [ "$confirmmain" = y ]; then
 	printf "%s" "[main] enter your username: /home/"
 	read -r installuser
 fi
@@ -25,7 +23,7 @@ printf "%s" "[global] install global dotfiles, eg. xorg, /etc/env, ...? (y/n) "
 read -r confirmglobal
 
 # dotfiles for your main account
-if [ $confirmmain = y ]; then
+if [ "$confirmmain" = y ]; then
 	echo "[main] installing"
 
 	cp -rp .config .scripts .bash* /home/$installuser/
@@ -41,7 +39,7 @@ else
 fi
 
 # dotfiles that effect the root account
-if [ $confirmroot = y ]; then
+if [ "$confirmroot" = y ]; then
 	echo "[root] installing"
 
 	cp -r .config .bash* /root/
@@ -54,14 +52,14 @@ else
 fi
 
 # dotfiles that affect all users
-if [ $confirmglobal = y ]; then
+if [ "$confirmglobal" = y ]; then
 	echo "[global] installing"
 
 	# xorg config
 	cp -r xorg.conf.d /usr/share/X11/
 
 	# add .scripts to PATH
-	[ $confirmmain = y ] && { echo "PATH=$PATH:/home/$installuser/.scripts" > /etc/environment ; }
+	[ "$confirmmain" = y ] && { echo "PATH=$PATH:/home/$installuser/.scripts" > /etc/environment ; }
 else
 	echo "[global] skipping"
 fi
