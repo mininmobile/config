@@ -8,9 +8,10 @@
 cd "${0%/*}"
 
 if command -v termux-fix-shebang &> /dev/null; then
-	[ "$(whoami)" = "root" ] && { echo "[install.sh] running as root" ; exit ; }
+	echo "[install.sh] termux detected"
+	[ "$(whoami)" = "root" ] && { echo "[install.sh] aborting, running as root" ; exit ; }
 
-	echo "[install.sh] termux detected, i'll do my best =]"
+	echo "[termux] installing"
 
 	cp -r .config .scripts .bash* ~/
 	# nano configs
@@ -23,7 +24,7 @@ if command -v termux-fix-shebang &> /dev/null; then
 	cd ~/.config
 	rm -rf gtk-2.0 gtk-3.0 protonvpn redshift xfce4
 else
-	[ "$(whoami)" = "root" ] || { echo "[install.sh] not running as root" ; exit ; }
+	[ "$(whoami)" = "root" ] || { echo "[install.sh] aborting, not running as root" ; exit ; }
 
 	read -rp "install dotfiles to main account? (y/n) " confirmmain
 	if [ "$confirmmain" = y ]; then
