@@ -23,7 +23,7 @@ set   autoindent
 unset backup
 set   backupdir              ~/.nano.backups
 set   boldtext
-set   breaklonglines
+unset breaklonglines
 set   casesensitive
 unset cutfromcursor
 set   emptyline
